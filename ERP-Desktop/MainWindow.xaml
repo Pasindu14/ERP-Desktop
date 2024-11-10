@@ -1,0 +1,74 @@
+﻿<mah:MetroWindow x:Class="ERP_Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:ERP_Desktop" xmlns:components="clr-namespace:ERP_Desktop.Components"
+                 mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="1200"
+        BorderBrush="{DynamicResource MahApps.Brushes.Accent}" BorderThickness="3"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <!-- StackPanel with Button and TabControl inside -->
+        <StackPanel Orientation="Vertical">
+
+            
+
+            <!-- Panel for input form, initially collapsed -->
+            <StackPanel x:Name="InputFormPanel" Orientation="Vertical" Visibility="Collapsed" Margin="10">
+                <TextBox x:Name="txtCategory" Width="200" 
+                         HorizontalAlignment="Left" 
+                         mah:TextBoxHelper.Watermark="Enter Category Name"/>
+
+            </StackPanel>
+            <!-- Main TabControl with multiple tabs -->
+            <TabControl Margin="10">
+                <TabItem Header="Masters">
+                    <!-- Nested TabControl inside the Masters tab -->
+                    <TabControl Margin="10">
+                        <TabItem Header="Category">
+                            <StackPanel>
+                                <Button Content="Add New" Width="100" HorizontalAlignment="Left" 
+        Margin="10" Click="ToggleAddCategoryForm_Click"/>
+                                <DataGrid x:Name="CategoryDataGrid" AutoGenerateColumns="True" Margin="10"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="200"/>
+                            </StackPanel>
+                        </TabItem>
+                        <TabItem Header="Nested Tab 2">
+                            <TextBlock Text="Content for Nested Tab 2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </TabItem>
+                        <TabItem Header="Nested Tab 3">
+                            <TextBlock Text="Content for Nested Tab 3" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </TabItem>
+                    </TabControl>
+                </TabItem>
+                <TabItem Header="Tab 2">
+                    <TextBlock Text="Content for Tab 2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </TabItem>
+                <TabItem Header="Tab 3">
+                    <TextBlock Text="Content for Tab 3" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+    </Grid>
+
+
+    <!-- Flyouts section for notifications or additional information -->
+    <mah:MetroWindow.Flyouts>
+        <mah:FlyoutsControl>
+            <mah:Flyout x:Name="Status" Header="" Position="Top" AutoCloseInterval="2000" IsAutoCloseEnabled="True" Height="30" Theme="Accent">
+                <TextBlock FontSize="10" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">Testing</TextBlock>
+            </mah:Flyout>
+
+            <!-- Add Category Flyout -->
+            <mah:Flyout x:Name="AddCategoryFlyout" Header="Add New Category" Position="Right" Width="300" Theme="Adapt" 
+                    IsOpen="False">
+                <components:AddCategoryControl x:Name="AddCategoryForm" CategoryAdded="OnCategoryAdded"/>
+            </mah:Flyout>
+        </mah:FlyoutsControl>
+    </mah:MetroWindow.Flyouts>
+    
+
+</mah:MetroWindow>
