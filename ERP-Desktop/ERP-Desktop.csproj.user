@@ -10,12 +10,18 @@
     <Compile Update="Components\AddCategoryControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\UpdateCategoryControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Home.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Components\AddCategoryControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\UpdateCategoryControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Home.xaml">

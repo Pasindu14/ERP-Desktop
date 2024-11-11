@@ -1,18 +1,9 @@
-﻿using ERP_Desktop.Helpers;
+﻿using ERP_Desktop.DBModels;
+using ERP_Desktop.Services;
+using ERP_Desktop.Helpers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ERP_Desktop.Components
 {
@@ -21,27 +12,59 @@ namespace ERP_Desktop.Components
     /// </summary>
     public partial class AddCategoryControl : UserControl
     {
+        private readonly InputValidator _validator;
+        private readonly CategoryService _categoryService;
 
+        public event EventHandler<tblCategoryMaster>? CategoryAdded;
+        // Inject CategoryService in the constructor
         public AddCategoryControl()
         {
             InitializeComponent();
+            _validator = new InputValidator();
+            _validator.RegisterTextBox(txtCategoryCode, "Category Code");
+            _validator.RegisterTextBox(txtCategoryName, "Category Name");
+
+            // Create ERPDesktopContext and CategoryService here
+            var context = new ERPDesktopContext();
+            _categoryService = new CategoryService(context);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void AddCategory(object sender, RoutedEventArgs e)
         {
-            var categoryName = txtNewCategory.Text.Trim();
-            if (!string.IsNullOrEmpty(categoryName))
+            var categoryName = txtCategoryName.Text.Trim();
+            var categoryCode = txtCategoryCode.Text.Trim();
+
+            if (_validator.ValidateAll())
             {
-                CategoryAdded?.Invoke(this, categoryName); // Trigger event with new category name
-                txtNewCategory.Clear();
-                StatusMessageHelper.ShowMessage("Category added successfully!", isError: false);
+                AddCategoryButton.IsEnabled = false;
+                // Create a new category object
+                var newCategory = new tblCategoryMaster
+                {
+                    cat_code = categoryCode, // Assuming cat_code is a unique string identifier
+                    cat_name = categoryName,
+                    cat_status = 1 // Set a default status
+                };
+
+                // Insert the category into the database
+                bool isInserted = await _categoryService.InsertCategoryAsync(newCategory);
+                AddCategoryButton.IsEnabled = true;
+                if (isInserted)
+                {
+                    // Raise an event that the category was added successfully
+                    CategoryAdded?.Invoke(this, newCategory);
+                    txtCategoryCode.Clear();
+
+                    StatusMessageHelper.ShowMessage("Category added successfully.", false);
+                }
+                else
+                {
+                    StatusMessageHelper.ShowMessage("Failed to add category. Please try again.", true);
+                }
             }
             else
             {
-                StatusMessageHelper.ShowMessage("Category name cannot be empty.", isError: true);
+                StatusMessageHelper.ShowMessage("Please enter a valid category name..", true);
             }
         }
-
-        public event EventHandler<string>? CategoryAdded;
     }
 }

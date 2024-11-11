@@ -1,0 +1,170 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Github\\ERP-Desktop\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|d:\\github\\erp-desktop\\erp-desktop\\home.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\home.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|d:\\github\\erp-desktop\\erp-desktop\\components\\addcategorycontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\components\\addcategorycontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|d:\\github\\erp-desktop\\erp-desktop\\components\\updatecategorycontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\components\\updatecategorycontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|d:\\github\\erp-desktop\\erp-desktop\\home.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\home.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|d:\\github\\erp-desktop\\erp-desktop\\components\\addcategorycontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\components\\addcategorycontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|d:\\github\\erp-desktop\\erp-desktop\\components\\updatecategorycontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\components\\updatecategorycontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|d:\\github\\erp-desktop\\erp-desktop\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|d:\\github\\erp-desktop\\erp-desktop\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|d:\\github\\erp-desktop\\erp-desktop\\inputvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\inputvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UpdateCategoryControl.xaml.cs",
+              "DocumentMoniker": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\UpdateCategoryControl.xaml.cs",
+              "RelativeDocumentMoniker": "ERP-Desktop\\Components\\UpdateCategoryControl.xaml.cs",
+              "ToolTip": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\UpdateCategoryControl.xaml.cs",
+              "RelativeToolTip": "ERP-Desktop\\Components\\UpdateCategoryControl.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T09:56:23.741Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UpdateCategoryControl.xaml",
+              "DocumentMoniker": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\UpdateCategoryControl.xaml",
+              "RelativeDocumentMoniker": "ERP-Desktop\\Components\\UpdateCategoryControl.xaml",
+              "ToolTip": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\UpdateCategoryControl.xaml",
+              "RelativeToolTip": "ERP-Desktop\\Components\\UpdateCategoryControl.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-11T09:56:13.532Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\App.xaml.cs",
+              "RelativeDocumentMoniker": "ERP-Desktop\\App.xaml.cs",
+              "ToolTip": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\App.xaml.cs",
+              "RelativeToolTip": "ERP-Desktop\\App.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T09:12:36.713Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CategoryService.cs",
+              "DocumentMoniker": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\Services\\CategoryService.cs",
+              "RelativeDocumentMoniker": "ERP-Desktop\\Services\\CategoryService.cs",
+              "ToolTip": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\Services\\CategoryService.cs",
+              "RelativeToolTip": "ERP-Desktop\\Services\\CategoryService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwBIAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T08:57:39.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Home.xaml.cs",
+              "DocumentMoniker": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\Home.xaml.cs",
+              "RelativeDocumentMoniker": "ERP-Desktop\\Home.xaml.cs",
+              "ToolTip": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\Home.xaml.cs",
+              "RelativeToolTip": "ERP-Desktop\\Home.xaml.cs",
+              "ViewState": "AQIAAEAAAAAAAAAAAAAIwFMAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T08:47:52.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "InputValidator.cs",
+              "DocumentMoniker": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\InputValidator.cs",
+              "RelativeDocumentMoniker": "ERP-Desktop\\InputValidator.cs",
+              "ToolTip": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\InputValidator.cs",
+              "RelativeToolTip": "ERP-Desktop\\InputValidator.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAYwDMAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T08:43:20.159Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AddCategoryControl.xaml.cs",
+              "DocumentMoniker": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\AddCategoryControl.xaml.cs",
+              "RelativeDocumentMoniker": "ERP-Desktop\\Components\\AddCategoryControl.xaml.cs",
+              "ToolTip": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\AddCategoryControl.xaml.cs",
+              "RelativeToolTip": "ERP-Desktop\\Components\\AddCategoryControl.xaml.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAQwDYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T08:43:09.725Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AddCategoryControl.xaml",
+              "DocumentMoniker": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\AddCategoryControl.xaml",
+              "RelativeDocumentMoniker": "ERP-Desktop\\Components\\AddCategoryControl.xaml",
+              "ToolTip": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\AddCategoryControl.xaml",
+              "RelativeToolTip": "ERP-Desktop\\Components\\AddCategoryControl.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-11T08:43:03.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Home.xaml",
+              "DocumentMoniker": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\Home.xaml",
+              "RelativeDocumentMoniker": "ERP-Desktop\\Home.xaml",
+              "ToolTip": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\Home.xaml",
+              "RelativeToolTip": "ERP-Desktop\\Home.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-11T08:41:42.46Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

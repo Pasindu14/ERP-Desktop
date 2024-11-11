@@ -2,19 +2,18 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using MahApps.Metro.Controls;
 
 namespace ERP_Desktop.Helpers
 {
     public class InputValidator
     {
-        private readonly Flyout _notificationFlyout;
+
         private readonly Dictionary<TextBox, string> _textBoxValidations = new Dictionary<TextBox, string>();
         private readonly Dictionary<TextBox, string> _errorMessages = new Dictionary<TextBox, string>(); // Stores error messages
 
-        public InputValidator(Flyout notificationFlyout)
+        public InputValidator()
         {
-            _notificationFlyout = notificationFlyout;
+
         }
 
         public void RegisterTextBox(TextBox textBox, string fieldName)
@@ -54,6 +53,7 @@ namespace ERP_Desktop.Helpers
             if (string.IsNullOrWhiteSpace(textBox.Text) ||
                 (_errorMessages.ContainsKey(textBox) && textBox.Text == _errorMessages[textBox]))
             {
+                ShowNotification($"{_textBoxValidations[textBox]} cannot be empty!", false);
                 ShowError(textBox, $"{_textBoxValidations[textBox]} cannot be empty!");
                 return false;
             }
@@ -96,10 +96,7 @@ namespace ERP_Desktop.Helpers
 
         public void ShowNotification(string message, bool isError)
         {
-            _notificationFlyout.Header = isError ? "Error" : "Success";
-            _notificationFlyout.Background = isError ? Brushes.Red : Brushes.Green;
-            _notificationFlyout.IsOpen = true;
-            _notificationFlyout.CloseButtonVisibility = Visibility.Hidden;
+            StatusMessageHelper.ShowMessage(message, isError: isError);
         }
     }
 }

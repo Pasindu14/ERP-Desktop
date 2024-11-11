@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Pasindu\source\repos\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\
+D:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\
 ERP_Desktop
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\Pasindu\source\repos\ERP-Desktop\ERP-Desktop\App.xaml
-3-1417295044
+D:\Github\ERP-Desktop\ERP-Desktop\App.xaml
+4761155067
 
-8-1475051697
-2011606299007
-Components\AddCategoryControl.xaml;Home.xaml;MainWindow.xaml;
+131232125259
+241-1837517472
+Components\AddCategoryControl.xaml;Components\UpdateCategoryControl.xaml;Home.xaml;MainWindow.xaml;
 
 False
 

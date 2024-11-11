@@ -7,10 +7,12 @@
              mc:Ignorable="d" 
              xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro">
     <Grid>
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10">
-            <TextBox x:Name="txtNewCategory" Width="200" Margin="10"
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10" >
+            <TextBox x:Name="txtCategoryCode" Width="200" Margin="10"
+                 mah:TextBoxHelper.Watermark="Enter Category Code"/>
+            <TextBox x:Name="txtCategoryName" Width="200" Margin="10"
                  mah:TextBoxHelper.Watermark="Enter Category Name"/>
-            <Button Content="Save" Width="200" HorizontalAlignment="Left" Margin="10" Click="Button_Click"/>
+            <Button Content="Save" Width="200" HorizontalAlignment="Left" Margin="10" Click="AddCategory" x:Name="AddCategoryButton"/>
         </StackPanel>
     </Grid>
 </UserControl>

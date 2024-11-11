@@ -1,5 +1,8 @@
 ﻿using ControlzEx.Standard;
+using ERP_Desktop.Components;
+using ERP_Desktop.DBModels;
 using ERP_Desktop.Helpers;
+using ERP_Desktop.Services;
 using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
@@ -24,32 +27,29 @@ namespace ERP_Desktop
     /// </summary>
     public partial class Home : MetroWindow
     {
-        private readonly InputValidator _validator;
-        public ObservableCollection<string> Categories { get; set; } = new ObservableCollection<string>();
+        private readonly CategoryService _categoryService;
 
         public Home()
         {
             InitializeComponent();
-            _validator = new InputValidator(Status);
-            CategoryDataGrid.ItemsSource = Categories; //
+            var context = new ERPDesktopContext();
+            _categoryService = new CategoryService(context);
+            Loaded += Home_Loaded;
             Status.CloseButtonVisibility = Visibility.Hidden;
+        }
+
+        private async void Home_Loaded(object sender, RoutedEventArgs e)
+        {
+            CategoryDataGrid.ItemsSource = await _categoryService.FetchAllCategoriesAsync(); //
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            _validator.RegisterTextBox(txtCategory, "Category Name");
 
-            if (_validator.ValidateAll())
-            {
-                Console.WriteLine(txtCategory.Text);
-                // Process the valid data here
-                _validator.ShowNotification("Data saved successfully!", false);
-            }
         }
 
         protected override void OnClosed(EventArgs e)
         {
-            _validator.UnregisterTextBox(txtCategory);
             base.OnClosed(e);
         }
 
@@ -60,32 +60,78 @@ namespace ERP_Desktop
             txtCategory.Clear();
         }
 
+
         private void ToggleAddCategoryForm_Click(object sender, RoutedEventArgs e)
         {
-            AddCategoryFlyout.IsOpen = !AddCategoryFlyout.IsOpen;
+            // Create and set up the AddCategoryControl
+            var addCategoryControl = new AddCategoryControl();
+
+            // Subscribe to the CategoryAdded event
+            addCategoryControl.CategoryAdded += OnCategoryAdded!;
+
+            // Set the content of the AddCategoryFlyout
+            ManageCategoryFlyout.Content = addCategoryControl;
+            ManageCategoryFlyout.Header = "Add New Category";
+            ManageCategoryFlyout.IsOpen = true;
         }
 
-        private void OnCategoryAdded(object sender, string newCategory)
+        private async void OnCategoryAdded(object? sender, tblCategoryMaster newCategory)
         {
-            Categories.Add(newCategory); // Add new category to collection, DataGrid updates automatically
-            Status.IsOpen = false;
-        }
+            // Close the flyout
+            ManageCategoryFlyout.IsOpen = false;
 
-        // Method to show status message in Status flyout
-        public void ShowStatusMessage(string message)
-        {
-            // Update the Status flyout content with the provided message
-            Status.Content = new TextBlock
+            // Refresh the DataGrid
+            await LoadCategories();
+
+            // Unsubscribe from the event to prevent memory leaks
+            if (sender is AddCategoryControl addControl)
             {
-                Text = message,
-                FontSize = 10,
-                TextAlignment = TextAlignment.Center,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center
-            };
+                addControl.CategoryAdded -= OnCategoryAdded!;
+            }
+        }
 
-            // Open the flyout
-            Status.IsOpen = true;
+
+        private void ToggleUpdateCategoryForm_Click(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+            var category = (tblCategoryMaster)button.DataContext;
+
+            // Create and set up the UpdateCategoryControl
+            var updateCategoryControl = new UpdateCategoryControl();
+            updateCategoryControl.LoadCategoryDetails(category);
+
+            // Subscribe to the CategoryUpdated event
+            updateCategoryControl.CategoryUpdated += OnCategoryUpdated;
+
+            // Set the content of the UpdateCategoryFlyout
+            ManageCategoryFlyout.Content = updateCategoryControl;
+            ManageCategoryFlyout.Header = "Update Category";
+            ManageCategoryFlyout.IsOpen = true;
+        }
+
+        private async void OnCategoryUpdated(object? sender, tblCategoryMaster updatedCategory)
+        {
+            // Close the flyout
+            ManageCategoryFlyout.IsOpen = false;
+
+            // Refresh the DataGrid
+            await LoadCategories(); // Assuming you have a method to reload the categories
+
+            // Unsubscribe from the event to prevent memory leaks
+            if (sender is UpdateCategoryControl updateControl)
+            {
+                updateControl.CategoryUpdated -= OnCategoryUpdated;
+            }
+        }
+
+        private async Task LoadCategories()
+        {
+            using (var context = new ERPDesktopContext())
+            {
+                var categoryService = new CategoryService(context);
+                var categories = await categoryService.FetchAllCategoriesAsync();
+                CategoryDataGrid.ItemsSource = categories;
+            }
         }
     }
 

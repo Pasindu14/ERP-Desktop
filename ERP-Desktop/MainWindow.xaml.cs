@@ -8,32 +8,21 @@ namespace ERP_Desktop
 {
     public partial class MainWindow : MetroWindow
     {
-        private readonly InputValidator _validator;
         public ObservableCollection<string> Categories { get; set; } = new ObservableCollection<string>();
 
         public MainWindow()
         {
             InitializeComponent();
-            _validator = new InputValidator(Status);
             CategoryDataGrid.ItemsSource = Categories; //
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            _validator.RegisterTextBox(txtCategory, "Category Name");
-
-            bool asd=_validator.ValidateAll();
-            if (_validator.ValidateAll())
-            {
-                Console.WriteLine(txtCategory.Text);
-                // Process the valid data here
-                _validator.ShowNotification("Data saved successfully!", false);
-            }
         }
 
         protected override void OnClosed(EventArgs e)
         {
-            _validator.UnregisterTextBox(txtCategory);
+
             base.OnClosed(e);
         }
 
