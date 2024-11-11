@@ -33,37 +33,49 @@ namespace ERP_Desktop.Components
         {
             var categoryName = txtCategoryName.Text.Trim();
             var categoryCode = txtCategoryCode.Text.Trim();
+            var catStatus = chkStatus.IsChecked == true ? 1 : 0;
 
             if (_validator.ValidateAll())
             {
                 AddCategoryButton.IsEnabled = false;
-                // Create a new category object
-                var newCategory = new tblCategoryMaster
-                {
-                    cat_code = categoryCode, // Assuming cat_code is a unique string identifier
-                    cat_name = categoryName,
-                    cat_status = 1 // Set a default status
-                };
 
-                // Insert the category into the database
-                bool isInserted = await _categoryService.InsertCategoryAsync(newCategory);
-                AddCategoryButton.IsEnabled = true;
-                if (isInserted)
+                try
                 {
-                    // Raise an event that the category was added successfully
-                    CategoryAdded?.Invoke(this, newCategory);
-                    txtCategoryCode.Clear();
+                    // Create a new category object
+                    var newCategory = new tblCategoryMaster
+                    {
+                        cat_code = categoryCode, // Assuming cat_code is a unique string identifier
+                        cat_name = categoryName,
+                        cat_status = catStatus // Set a default status
+                    };
 
-                    StatusMessageHelper.ShowMessage("Category added successfully.", false);
+                    // Insert the category into the database
+                    bool isInserted = await _categoryService.InsertCategoryAsync(newCategory);
+                    AddCategoryButton.IsEnabled = true;
+
+                    if (isInserted)
+                    {
+                        // Raise an event that the category was added successfully
+                        CategoryAdded?.Invoke(this, newCategory);
+                        txtCategoryCode.Clear();
+                        txtCategoryName.Clear();
+
+                        StatusMessageHelper.ShowMessage("Category added successfully.", false);
+                    }
+                    else
+                    {
+                        StatusMessageHelper.ShowMessage("Failed to add category. Please try again.", true);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    StatusMessageHelper.ShowMessage("Failed to add category. Please try again.", true);
+                    AddCategoryButton.IsEnabled = true;
+                    StatusMessageHelper.ShowMessage($"An error occurred: {ex.Message}", true);
                 }
             }
             else
             {
-                StatusMessageHelper.ShowMessage("Please enter a valid category name..", true);
+                StatusMessageHelper.ShowMessage("Please enter a valid category name.", true);
             }
         }
     }

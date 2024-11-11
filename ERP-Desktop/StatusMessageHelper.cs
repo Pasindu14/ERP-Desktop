@@ -26,7 +26,7 @@ namespace ERP_Desktop.Helpers
                 home.Status.Content = messageTextBlock;
 
                 // Set header to indicate the message type
-                home.Status.Background= Brushes.Red;
+                home.Status.Background= isError==false?Brushes.Green: Brushes.Red;
 
                 // Open the flyout
                 home.Status.IsOpen = true;

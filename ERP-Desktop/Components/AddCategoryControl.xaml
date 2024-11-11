@@ -12,6 +12,7 @@
                  mah:TextBoxHelper.Watermark="Enter Category Code"/>
             <TextBox x:Name="txtCategoryName" Width="200" Margin="10"
                  mah:TextBoxHelper.Watermark="Enter Category Name"/>
+            <CheckBox x:Name="chkStatus" Content="Active Status" Width="200" Margin="10" IsChecked="True"/>
             <Button Content="Save" Width="200" HorizontalAlignment="Left" Margin="10" Click="AddCategory" x:Name="AddCategoryButton"/>
         </StackPanel>
     </Grid>

@@ -29,7 +29,7 @@
                             <StackPanel>
                                 <Button Content="Add New" Width="100" HorizontalAlignment="Left" Margin="10" Click="ToggleAddCategoryForm_Click"/>
                                 <DataGrid x:Name="CategoryDataGrid" AutoGenerateColumns="False" Margin="10"
-          HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="200" BorderBrush="Black" BorderThickness="2" CanUserAddRows="False">
+          HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="400" BorderBrush="Black" BorderThickness="1" CanUserAddRows="False">
                                     <!-- Define custom columns with specific headers -->
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Category Code" Binding="{Binding cat_code}" Width="*" />

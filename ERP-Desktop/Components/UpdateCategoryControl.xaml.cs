@@ -31,31 +31,42 @@ namespace ERP_Desktop.Components
             _currentCategory = category;
             txtUpdateCategoryCode.Text = category.cat_code; // Set the code as readonly or static
             txtUpdateCategoryName.Text = category.cat_name;
+            chkStatus.IsChecked=category.cat_status==1?true:false;
         }
 
         // Update the category based on modified details
         private async void UpdateCategory(object sender, RoutedEventArgs e)
         {
-            // Update the category name from the UI input
+            // Update the category name and status from the UI input
             _currentCategory!.cat_name = txtUpdateCategoryName.Text.Trim();
+            _currentCategory!.cat_status = chkStatus.IsChecked == true ? 1 : 0;
 
             // Validate before updating
             if (_validator.ValidateAll())
             {
                 UpdateCategoryButton.IsEnabled = false;
 
-                // Perform update operation
-                bool isUpdated = await _categoryService.UpdateCategoryAsync(_currentCategory);
-                UpdateCategoryButton.IsEnabled = true;
+                try
+                {
+                    // Perform update operation
+                    bool isUpdated = await _categoryService.UpdateCategoryAsync(_currentCategory);
+                    UpdateCategoryButton.IsEnabled = true;
 
-                if (isUpdated)
-                {
-                    StatusMessageHelper.ShowMessage("Category updated successfully.", false);
-                    CategoryUpdated?.Invoke(this, _currentCategory);
+                    if (isUpdated)
+                    {
+                        StatusMessageHelper.ShowMessage("Category updated successfully.", false);
+                        CategoryUpdated?.Invoke(this, _currentCategory);
+                    }
+                    else
+                    {
+                        StatusMessageHelper.ShowMessage("Failed to update category. Please try again.", true);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    StatusMessageHelper.ShowMessage("Failed to update category. Please try again.", true);
+                    // Handle any unexpected errors
+                    UpdateCategoryButton.IsEnabled = true;
+                    StatusMessageHelper.ShowMessage($"An error occurred: {ex.Message}", true);
                 }
             }
             else
