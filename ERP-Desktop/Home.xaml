@@ -129,8 +129,20 @@
                         </TabItem>
                     </TabControl>
                 </TabItem>
-                <TabItem Header="Tab 3">
-                    <TextBlock Text="Content for Tab 3" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <TabItem Header="Purchase Order">
+					<TabControl Margin="10">
+						<!-- First nested tab -->
+						<TabItem Header="Add Purchase Order">
+							<components:AddPurchaseOrderControl />
+						</TabItem>
+
+						<!-- Second nested tab -->
+						<TabItem Header="Purchase Order View">
+							<StackPanel >
+								<components:PurchaseOrderViewControl />
+							</StackPanel>
+						</TabItem>
+					</TabControl>
                 </TabItem>
             </TabControl>
         </StackPanel>

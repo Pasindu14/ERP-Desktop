@@ -102,5 +102,24 @@ namespace ERP_Desktop.Services
             _context.tblProductMaster.Remove(product);
             return await _context.SaveChangesAsync() > 0;
         }
+
+        public async Task<tblProductMaster?> FetchProductStockByCodeAsync(int prodCode)
+        {
+            return await _context.tblProductMaster
+                .Where(p => p.prod_code == prodCode)
+                .Select(p => new tblProductMaster
+                {
+                    prod_code = p.prod_code,
+                    prod_code_usergen = p.prod_code_usergen,
+                    prod_name = p.prod_name,
+                    prod_desc = p.prod_desc,
+                    prod_cost_price = p.prod_cost_price,
+                    prod_sales_price = p.prod_sales_price,
+                    prod_cat = p.prod_cat,
+                    stock = p.stock,  // Fetches current stock
+                    prod_status = p.prod_status
+                })
+                .FirstOrDefaultAsync();
+        }
     }
 }

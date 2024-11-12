@@ -3,24 +3,52 @@
   "WorkspaceRootPath": "K:\\Github\\ERP-Desktop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|k:\\github\\erp-desktop\\erp-desktop\\home.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\home.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|k:\\github\\erp-desktop\\erp-desktop\\home.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\home.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|k:\\github\\erp-desktop\\erp-desktop\\components\\addcategorycontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\components\\addcategorycontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|k:\\github\\erp-desktop\\erp-desktop\\components\\purchaseorderviewcontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\components\\purchaseorderviewcontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|k:\\github\\erp-desktop\\erp-desktop\\components\\addcategorycontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\components\\addcategorycontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|k:\\github\\erp-desktop\\erp-desktop\\components\\invoiceviewcontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\components\\invoiceviewcontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|k:\\github\\erp-desktop\\erp-desktop\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|k:\\github\\erp-desktop\\erp-desktop\\components\\purchaseorderviewcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\components\\purchaseorderviewcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|k:\\github\\erp-desktop\\erp-desktop\\components\\updatecategorycontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\components\\updatecategorycontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|k:\\github\\erp-desktop\\erp-desktop\\components\\invoiceviewcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\components\\invoiceviewcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|k:\\github\\erp-desktop\\erp-desktop\\components\\addpurchaseordercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\components\\addpurchaseordercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|k:\\github\\erp-desktop\\erp-desktop\\components\\addpurchaseordercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\components\\addpurchaseordercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|k:\\github\\erp-desktop\\erp-desktop\\wrapper\\wrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\wrapper\\wrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|k:\\github\\erp-desktop\\erp-desktop\\components\\addinvoicecontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\components\\addinvoicecontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|k:\\github\\erp-desktop\\erp-desktop\\components\\addinvoicecontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\components\\addinvoicecontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|k:\\github\\erp-desktop\\erp-desktop\\services\\invoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\services\\invoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|k:\\github\\erp-desktop\\erp-desktop\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B423ECE-017E-413D-8241-FF82DCCE600D}|ERP-Desktop\\ERP-Desktop.csproj|solutionrelative:erp-desktop\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,11 +58,61 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InvoiceViewControl.xaml.cs",
+              "DocumentMoniker": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\InvoiceViewControl.xaml.cs",
+              "RelativeDocumentMoniker": "ERP-Desktop\\Components\\InvoiceViewControl.xaml.cs",
+              "ToolTip": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\InvoiceViewControl.xaml.cs",
+              "RelativeToolTip": "ERP-Desktop\\Components\\InvoiceViewControl.xaml.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAADwv2cAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-12T18:30:27.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PurchaseOrderViewControl.xaml.cs",
+              "DocumentMoniker": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\PurchaseOrderViewControl.xaml.cs",
+              "RelativeDocumentMoniker": "ERP-Desktop\\Components\\PurchaseOrderViewControl.xaml.cs",
+              "ToolTip": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\PurchaseOrderViewControl.xaml.cs",
+              "RelativeToolTip": "ERP-Desktop\\Components\\PurchaseOrderViewControl.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-12T18:30:22.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "InvoiceViewControl.xaml",
+              "DocumentMoniker": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\InvoiceViewControl.xaml",
+              "RelativeDocumentMoniker": "ERP-Desktop\\Components\\InvoiceViewControl.xaml",
+              "ToolTip": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\InvoiceViewControl.xaml",
+              "RelativeToolTip": "ERP-Desktop\\Components\\InvoiceViewControl.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-12T18:27:58.302Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PurchaseOrderViewControl.xaml",
+              "DocumentMoniker": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\PurchaseOrderViewControl.xaml",
+              "RelativeDocumentMoniker": "ERP-Desktop\\Components\\PurchaseOrderViewControl.xaml",
+              "ToolTip": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\PurchaseOrderViewControl.xaml",
+              "RelativeToolTip": "ERP-Desktop\\Components\\PurchaseOrderViewControl.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-12T18:27:54.34Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -44,59 +122,98 @@
               "RelativeDocumentMoniker": "ERP-Desktop\\Home.xaml",
               "ToolTip": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Home.xaml",
               "RelativeToolTip": "ERP-Desktop\\Home.xaml",
+              "ViewState": "AgIAAHYAAAAAAAAAAAAAAIsAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-11T16:22:09.818Z",
+              "WhenOpened": "2024-11-12T18:20:33.231Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AddCategoryControl.xaml.cs",
-              "DocumentMoniker": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\AddCategoryControl.xaml.cs",
-              "RelativeDocumentMoniker": "ERP-Desktop\\Components\\AddCategoryControl.xaml.cs",
-              "ToolTip": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\AddCategoryControl.xaml.cs",
-              "RelativeToolTip": "ERP-Desktop\\Components\\AddCategoryControl.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFAAAAAEAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "Wrapper.cs",
+              "DocumentMoniker": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Wrapper\\Wrapper.cs",
+              "RelativeDocumentMoniker": "ERP-Desktop\\Wrapper\\Wrapper.cs",
+              "ToolTip": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Wrapper\\Wrapper.cs",
+              "RelativeToolTip": "ERP-Desktop\\Wrapper\\Wrapper.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAUwIYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T16:20:00.914Z",
+              "WhenOpened": "2024-11-12T18:19:04.345Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AddCategoryControl.xaml",
-              "DocumentMoniker": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\AddCategoryControl.xaml",
-              "RelativeDocumentMoniker": "ERP-Desktop\\Components\\AddCategoryControl.xaml",
-              "ToolTip": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\AddCategoryControl.xaml",
-              "RelativeToolTip": "ERP-Desktop\\Components\\AddCategoryControl.xaml",
+              "DocumentIndex": 5,
+              "Title": "AddPurchaseOrderControl.xaml.cs",
+              "DocumentMoniker": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\AddPurchaseOrderControl.xaml.cs",
+              "RelativeDocumentMoniker": "ERP-Desktop\\Components\\AddPurchaseOrderControl.xaml.cs",
+              "ToolTip": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\AddPurchaseOrderControl.xaml.cs",
+              "RelativeToolTip": "ERP-Desktop\\Components\\AddPurchaseOrderControl.xaml.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAcwHkAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-12T18:17:29.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AddPurchaseOrderControl.xaml",
+              "DocumentMoniker": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\AddPurchaseOrderControl.xaml",
+              "RelativeDocumentMoniker": "ERP-Desktop\\Components\\AddPurchaseOrderControl.xaml",
+              "ToolTip": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\AddPurchaseOrderControl.xaml",
+              "RelativeToolTip": "ERP-Desktop\\Components\\AddPurchaseOrderControl.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-11T16:19:58.876Z",
+              "WhenOpened": "2024-11-12T18:16:04.24Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CategoryService.cs",
-              "DocumentMoniker": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Services\\CategoryService.cs",
-              "RelativeDocumentMoniker": "ERP-Desktop\\Services\\CategoryService.cs",
-              "ToolTip": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Services\\CategoryService.cs",
-              "RelativeToolTip": "ERP-Desktop\\Services\\CategoryService.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAgwC8AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "InvoiceService.cs",
+              "DocumentMoniker": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Services\\InvoiceService.cs",
+              "RelativeDocumentMoniker": "ERP-Desktop\\Services\\InvoiceService.cs",
+              "ToolTip": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Services\\InvoiceService.cs",
+              "RelativeToolTip": "ERP-Desktop\\Services\\InvoiceService.cs",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAswLIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T16:15:39.688Z",
+              "WhenOpened": "2024-11-12T18:07:04.226Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UpdateCategoryControl.xaml.cs",
-              "DocumentMoniker": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\UpdateCategoryControl.xaml.cs",
-              "RelativeDocumentMoniker": "ERP-Desktop\\Components\\UpdateCategoryControl.xaml.cs",
-              "ToolTip": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\UpdateCategoryControl.xaml.cs",
-              "RelativeToolTip": "ERP-Desktop\\Components\\UpdateCategoryControl.xaml.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAxwEsAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Services\\ProductService.cs",
+              "RelativeDocumentMoniker": "ERP-Desktop\\Services\\ProductService.cs",
+              "ToolTip": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Services\\ProductService.cs",
+              "RelativeToolTip": "ERP-Desktop\\Services\\ProductService.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAADwv2cAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T16:12:56.715Z",
+              "WhenOpened": "2024-11-12T18:03:43.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AddInvoiceControl.xaml.cs",
+              "DocumentMoniker": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\AddInvoiceControl.xaml.cs",
+              "RelativeDocumentMoniker": "ERP-Desktop\\Components\\AddInvoiceControl.xaml.cs",
+              "ToolTip": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\AddInvoiceControl.xaml.cs",
+              "RelativeToolTip": "ERP-Desktop\\Components\\AddInvoiceControl.xaml.cs",
+              "ViewState": "AgIAAHcAAAAAAAAAAADwv6gAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-12T18:03:06.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AddInvoiceControl.xaml",
+              "DocumentMoniker": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\AddInvoiceControl.xaml",
+              "RelativeDocumentMoniker": "ERP-Desktop\\Components\\AddInvoiceControl.xaml",
+              "ToolTip": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\Components\\AddInvoiceControl.xaml",
+              "RelativeToolTip": "ERP-Desktop\\Components\\AddInvoiceControl.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-12T18:03:03.204Z",
               "EditorCaption": ""
             }
           ]

@@ -483,3 +483,15 @@ D:\Github\ERP-Desktop-New\ERP-Desktop\obj\Debug\net8.0-windows\Components\AddInv
 D:\Github\ERP-Desktop-New\ERP-Desktop\obj\Debug\net8.0-windows\Components\AddInvoiceControl.g.cs
 D:\Github\ERP-Desktop-New\ERP-Desktop\obj\Debug\net8.0-windows\Components\InvoiceViewControl.g.cs
 D:\Github\ERP-Desktop-New\ERP-Desktop\obj\Debug\net8.0-windows\Components\InvoiceViewControl.baml
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\AddInvoiceControl.baml
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\AddInvoiceControl.g.cs
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\AddProductControl.g.cs
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\InvoiceViewControl.g.cs
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\UpdateProductControl.g.cs
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\AddProductControl.baml
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\InvoiceViewControl.baml
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\UpdateProductControl.baml
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\AddPurchaseOrderControl.baml
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\AddPurchaseOrderControl.g.cs
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\PurchaseOrderViewControl.g.cs
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\PurchaseOrderViewControl.baml

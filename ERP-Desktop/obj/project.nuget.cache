@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "icSTmCVLMY0=",
+  "dgSpecHash": "Q5+oIvfKCSs=",
   "success": true,
-  "projectFilePath": "D:\\Github\\ERP-Desktop-New\\ERP-Desktop\\ERP-Desktop.csproj",
+  "projectFilePath": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\ERP-Desktop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pasindu\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Pasindu\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

@@ -35,15 +35,38 @@ namespace ERP_Desktop.Services
                 _context.tblInvoiceMaster.Add(invoice);
                 await _context.SaveChangesAsync();
 
-                // Associate each line item with the new invoice ID and add to the context
+                // Process each line item
                 foreach (var lineItem in lineItems)
                 {
+                    // Fetch the product to update its stock
+                    var product = await _context.tblProductMaster.FirstOrDefaultAsync(p => p.prod_code == lineItem.prod_code);
+                    if (product == null)
+                    {
+                        await transaction.RollbackAsync();
+                        StatusMessageHelper.ShowMessage($"Product with code {lineItem.prod_code} not found. Invoice creation aborted.", true);
+                        return false;
+                    }
+
+                    // Check if there's enough stock to fulfill the invoice
+                    if (product.stock < lineItem.quantity)
+                    {
+                        await transaction.RollbackAsync();
+                        StatusMessageHelper.ShowMessage($"Insufficient stock for product {product.prod_name} (Code: {product.prod_code}). Available stock: {product.stock}.", true);
+                        return false;
+                    }
+
+                    // Deduct stock
+                    product.stock -= lineItem.quantity;
+
+                    // Associate each line item with the new invoice ID and add to the context
                     lineItem.invoice_id = invoice.invoice_id; // Set the foreign key
                     _context.tblInvoiceLine.Add(lineItem);
                 }
 
+                // Save changes to update the stock and add line items
                 await _context.SaveChangesAsync();
                 await transaction.CommitAsync();
+
                 StatusMessageHelper.ShowMessage("Invoice created successfully.", false);
                 return true;
             }
@@ -54,6 +77,7 @@ namespace ERP_Desktop.Services
                 return false;
             }
         }
+
 
 
         // Fetch all invoices with their line items

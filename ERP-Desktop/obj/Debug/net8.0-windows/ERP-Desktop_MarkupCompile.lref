@@ -1,10 +1,11 @@
 ﻿
-FD:\Github\ERP-Desktop-New\ERP-Desktop\App.xaml;;
-FD:\Github\ERP-Desktop-New\ERP-Desktop\Components\AddCategoryControl.xaml;;
-FD:\Github\ERP-Desktop-New\ERP-Desktop\Components\AddProductControl.xaml;;
-FD:\Github\ERP-Desktop-New\ERP-Desktop\Components\UpdateCategoryControl.xaml;;
-FD:\Github\ERP-Desktop-New\ERP-Desktop\Components\UpdateProductControl.xaml;;
-FD:\Github\ERP-Desktop-New\ERP-Desktop\Home.xaml;;
-FD:\Github\ERP-Desktop-New\ERP-Desktop\MainWindow.xaml;;
-FD:\Github\ERP-Desktop-New\ERP-Desktop\Components\InvoiceViewControl.xaml;;
+FK:\Github\ERP-Desktop\ERP-Desktop\App.xaml;;
+FK:\Github\ERP-Desktop\ERP-Desktop\Components\AddCategoryControl.xaml;;
+FK:\Github\ERP-Desktop\ERP-Desktop\Components\AddProductControl.xaml;;
+FK:\Github\ERP-Desktop\ERP-Desktop\Components\InvoiceViewControl.xaml;;
+FK:\Github\ERP-Desktop\ERP-Desktop\Components\UpdateCategoryControl.xaml;;
+FK:\Github\ERP-Desktop\ERP-Desktop\Components\UpdateProductControl.xaml;;
+FK:\Github\ERP-Desktop\ERP-Desktop\Home.xaml;;
+FK:\Github\ERP-Desktop\ERP-Desktop\MainWindow.xaml;;
+FK:\Github\ERP-Desktop\ERP-Desktop\Components\PurchaseOrderViewControl.xaml;;
 

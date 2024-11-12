@@ -34,7 +34,7 @@ namespace ERP_Desktop
             public string DisplayText => $"{_product.prod_code_usergen} - {_product.prod_name}";
         }
 
-
+        // Wrapper for Invoice line item display information
         public class InvoiceLineDisplayWrapper : INotifyPropertyChanged
         {
             private tblInvoiceLine _lineItem;
@@ -90,7 +90,45 @@ namespace ERP_Desktop
             }
         }
 
-        // Wrapper for Invoice display information
+        // Wrapper for Purchase Order line item display information
+        public class PurchaseOrderLineDisplayWrapper : INotifyPropertyChanged
+        {
+            private tblPurchaseOrderLine _lineItem;
 
+            public PurchaseOrderLineDisplayWrapper(tblPurchaseOrderLine lineItem, tblProductMaster product)
+            {
+                _lineItem = lineItem;
+                ProductName = product.prod_name;
+                Quantity = lineItem.quantity;
+                UnitPrice = lineItem.unit_price;
+                LineTotal = lineItem.line_total;
+            }
+
+            public string ProductName { get; }
+            public int Quantity { get; set; }
+            public decimal UnitPrice { get; }
+
+            private decimal _lineTotal;
+            public decimal LineTotal
+            {
+                get => _lineTotal;
+                private set
+                {
+                    if (_lineTotal != value)
+                    {
+                        _lineTotal = value;
+                        _lineItem.line_total = _lineTotal;
+                        OnPropertyChanged(nameof(LineTotal));
+                    }
+                }
+            }
+
+            public event PropertyChangedEventHandler? PropertyChanged;
+
+            protected void OnPropertyChanged(string propertyName)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }

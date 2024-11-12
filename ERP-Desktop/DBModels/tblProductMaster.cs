@@ -26,4 +26,6 @@ public partial class tblProductMaster
     public virtual tblCategoryMaster? prod_catNavigation { get; set; }
 
     public virtual ICollection<tblInvoiceLine> tblInvoiceLine { get; set; } = new List<tblInvoiceLine>();
+
+    public virtual ICollection<tblPurchaseOrderLine> tblPurchaseOrderLine { get; set; } = new List<tblPurchaseOrderLine>();
 }

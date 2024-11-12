@@ -77,6 +77,13 @@ namespace ERP_Desktop.Components
                     return;
                 }
 
+                // Check if enough stock is available
+                if (product.stock < quantity)
+                {
+                    StatusMessageHelper.ShowMessage($"Insufficient stock for {product.prod_name}. Available stock: {product.stock}.", true);
+                    return;
+                }
+
                 // Calculate total for this line item
                 decimal price = product.prod_sales_price ?? 0;
                 decimal total = price * quantity;
