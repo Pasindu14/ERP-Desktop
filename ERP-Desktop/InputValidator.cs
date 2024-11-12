@@ -7,13 +7,12 @@ namespace ERP_Desktop.Helpers
 {
     public class InputValidator
     {
-
         private readonly Dictionary<TextBox, string> _textBoxValidations = new Dictionary<TextBox, string>();
-        private readonly Dictionary<TextBox, string> _errorMessages = new Dictionary<TextBox, string>(); // Stores error messages
+        private readonly Dictionary<ComboBox, string> _comboBoxValidations = new Dictionary<ComboBox, string>(); // ComboBox validations
+        private readonly Dictionary<Control, string> _errorMessages = new Dictionary<Control, string>(); // Stores error messages for both TextBox and ComboBox
 
         public InputValidator()
         {
-
         }
 
         public void RegisterTextBox(TextBox textBox, string fieldName)
@@ -22,6 +21,15 @@ namespace ERP_Desktop.Helpers
             {
                 _textBoxValidations.Add(textBox, fieldName);
                 textBox.TextChanged += TextBox_TextChanged;
+            }
+        }
+
+        public void RegisterComboBox(ComboBox comboBox, string fieldName)
+        {
+            if (!_comboBoxValidations.ContainsKey(comboBox))
+            {
+                _comboBoxValidations.Add(comboBox, fieldName);
+                comboBox.SelectionChanged += ComboBox_SelectionChanged;
             }
         }
 
@@ -35,9 +43,20 @@ namespace ERP_Desktop.Helpers
             }
         }
 
+        public void UnregisterComboBox(ComboBox comboBox)
+        {
+            if (_comboBoxValidations.ContainsKey(comboBox))
+            {
+                comboBox.SelectionChanged -= ComboBox_SelectionChanged;
+                _comboBoxValidations.Remove(comboBox);
+                _errorMessages.Remove(comboBox);
+            }
+        }
+
         public bool ValidateAll()
         {
             bool isValid = true;
+
             foreach (var textBox in _textBoxValidations.Keys)
             {
                 if (!ValidateTextBox(textBox))
@@ -45,6 +64,15 @@ namespace ERP_Desktop.Helpers
                     isValid = false;
                 }
             }
+
+            foreach (var comboBox in _comboBoxValidations.Keys)
+            {
+                if (!ValidateComboBox(comboBox))
+                {
+                    isValid = false;
+                }
+            }
+
             return isValid;
         }
 
@@ -60,26 +88,55 @@ namespace ERP_Desktop.Helpers
             return true;
         }
 
-        private void ShowError(TextBox textBox, string message)
+        public bool ValidateComboBox(ComboBox comboBox)
         {
-            _errorMessages[textBox] = message; // Store error message for the TextBox
-            textBox.Text = message;
-            textBox.Foreground = Brushes.Red;
-            textBox.GotFocus += ClearErrorOnFocus;
-            textBox.BorderBrush = Brushes.Red;
-            textBox.BorderThickness = new Thickness(2);
+            if (comboBox.SelectedItem == null ||
+                (_errorMessages.ContainsKey(comboBox) && comboBox.Text == _errorMessages[comboBox]))
+            {
+                ShowNotification($"{_comboBoxValidations[comboBox]} must be selected!", false);
+                ShowError(comboBox, $"{_comboBoxValidations[comboBox]} must be selected!");
+                return false;
+            }
+            return true;
+        }
+
+        private void ShowError(Control control, string message)
+        {
+            _errorMessages[control] = message; // Store error message for the control
+            control.ToolTip = message;
+            control.BorderBrush = Brushes.Red;
+            control.BorderThickness = new Thickness(2);
+
+            if (control is TextBox textBox)
+            {
+                textBox.Text = message;
+                textBox.Foreground = Brushes.Red;
+                textBox.GotFocus += ClearErrorOnFocus;
+            }
+            else if (control is ComboBox comboBox)
+            {
+                comboBox.GotFocus += ClearErrorOnFocus;
+            }
         }
 
         private void ClearErrorOnFocus(object sender, RoutedEventArgs e)
         {
-            if (sender is TextBox textBox)
+            if (sender is Control control)
             {
-                if (_errorMessages.ContainsKey(textBox) && textBox.Text == _errorMessages[textBox])
+                if (_errorMessages.ContainsKey(control))
                 {
-                    textBox.Clear(); // Only clear if it’s showing the error message
+                    control.ClearValue(TextBox.ToolTipProperty);
+                    control.ClearValue(Border.BorderBrushProperty);
+                    control.ClearValue(Border.BorderThicknessProperty);
+
+                    if (control is TextBox textBox)
+                    {
+                        textBox.Clear();
+                        textBox.ClearValue(TextBox.ForegroundProperty);
+                    }
+
+                    control.GotFocus -= ClearErrorOnFocus;
                 }
-                textBox.ClearValue(TextBox.ForegroundProperty);
-                textBox.GotFocus -= ClearErrorOnFocus;
             }
         }
 
@@ -87,10 +144,20 @@ namespace ERP_Desktop.Helpers
         {
             if (sender is TextBox textBox)
             {
-                textBox.ClearValue(TextBox.BorderBrushProperty);
-                textBox.ClearValue(TextBox.BorderThicknessProperty);
+                textBox.ClearValue(Border.BorderBrushProperty);
+                textBox.ClearValue(Border.BorderThicknessProperty);
                 textBox.ClearValue(TextBox.ForegroundProperty);
                 textBox.GotFocus -= ClearErrorOnFocus;
+            }
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender is ComboBox comboBox)
+            {
+                comboBox.ClearValue(Border.BorderBrushProperty);
+                comboBox.ClearValue(Border.BorderThicknessProperty);
+                comboBox.GotFocus -= ClearErrorOnFocus;
             }
         }
 

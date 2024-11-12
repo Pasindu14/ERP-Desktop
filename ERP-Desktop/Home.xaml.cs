@@ -28,12 +28,14 @@ namespace ERP_Desktop
     public partial class Home : MetroWindow
     {
         private readonly CategoryService _categoryService;
+        private readonly ProductService _productService;
 
         public Home()
         {
             InitializeComponent();
             var context = new ERPDesktopContext();
             _categoryService = new CategoryService(context);
+            _productService = new ProductService(context);
             Loaded += Home_Loaded;
             Status.CloseButtonVisibility = Visibility.Hidden;
         }
@@ -41,11 +43,7 @@ namespace ERP_Desktop
         private async void Home_Loaded(object sender, RoutedEventArgs e)
         {
             CategoryDataGrid.ItemsSource = await _categoryService.FetchAllCategoriesAsync(); //
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
+            ProductDataGrid.ItemsSource = await _productService.FetchAllProductsAsync();
         }
 
         protected override void OnClosed(EventArgs e)
@@ -59,7 +57,6 @@ namespace ERP_Desktop
             InputFormPanel.Visibility = Visibility.Visible;
             txtCategory.Clear();
         }
-
 
         private void ToggleAddCategoryForm_Click(object sender, RoutedEventArgs e)
         {
@@ -89,7 +86,6 @@ namespace ERP_Desktop
                 addControl.CategoryAdded -= OnCategoryAdded!;
             }
         }
-
 
         private void ToggleUpdateCategoryForm_Click(object sender, RoutedEventArgs e)
         {
@@ -133,8 +129,83 @@ namespace ERP_Desktop
                 CategoryDataGrid.ItemsSource = categories;
             }
         }
+
+        // Method to toggle the Add Product form
+        private async void ToggleAddProductForm_Click(object sender, RoutedEventArgs e)
+        {
+            var addProductControl = new AddProductControl();
+
+            // Subscribe to the ProductAdded event
+            addProductControl.ProductAdded += OnProductAdded!;
+            addProductControl.cmbCategory.ItemsSource = await _categoryService.FetchAllCategoriesAsync();
+
+            // Set the content of the ManageProductFlyout
+            ManageProductFlyout.Content = addProductControl;
+            ManageProductFlyout.Header = "Add New Product";
+            ManageProductFlyout.IsOpen = true;
+        }
+
+        // Event handler for when a product is added
+        private async void OnProductAdded(object? sender, tblProductMaster newProduct)
+        {
+            // Close the flyout after adding the product
+            ManageProductFlyout.IsOpen = false;
+
+            // Refresh the product list
+            await LoadProducts();
+
+            // Unsubscribe from the event to prevent memory leaks
+            if (sender is AddProductControl addControl)
+            {
+                addControl.ProductAdded -= OnProductAdded!;
+            }
+        }
+
+        // Method to toggle the Update Product form
+        private async void ToggleUpdateProductForm_Click(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+            var product = (tblProductMaster)button.DataContext;
+
+            // Create and set up the UpdateProductControl
+            var updateProductControl = new UpdateProductControl();
+
+            // Fetch all categories to populate the ComboBox in the UpdateProductControl
+            var categories = await _categoryService.FetchAllCategoriesAsync();
+            updateProductControl.LoadProductDetails(product, categories);
+
+            // Subscribe to the ProductUpdated event
+            updateProductControl.ProductUpdated += OnProductUpdated;
+
+            // Set the content of the ManageProductFlyout for updating a product
+            ManageProductFlyout.Content = updateProductControl;
+            ManageProductFlyout.Header = "Update Product";
+            ManageProductFlyout.IsOpen = true;
+        }
+        // Event handler for when a product is updated
+        private async void OnProductUpdated(object? sender, tblProductMaster updatedProduct)
+        {
+            // Close the flyout after updating the product
+            ManageProductFlyout.IsOpen = false;
+
+            // Refresh the product list
+            await LoadProducts();
+
+            // Unsubscribe from the event to prevent memory leaks
+            if (sender is UpdateProductControl updateControl)
+            {
+                updateControl.ProductUpdated -= OnProductUpdated;
+            }
+        }
+        // Method to reload the products into the ProductDataGrid
+        private async Task LoadProducts()
+        {
+            var products = await _productService.FetchAllProductsAsync();
+            ProductDataGrid.ItemsSource = products;
+        }
+
     }
 
-  
-   
+
+
 }

@@ -67,11 +67,50 @@
 
                             </StackPanel>
                         </TabItem>
-                        <TabItem Header="Nested Tab 2">
-                            <TextBlock Text="Content for Nested Tab 2" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                        </TabItem>
-                        <TabItem Header="Nested Tab 3">
-                            <TextBlock Text="Content for Nested Tab 3" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        <TabItem Header="Product">
+                            <StackPanel>
+                                <Button Content="Add New" Width="100" HorizontalAlignment="Left" Margin="10" Click="ToggleAddProductForm_Click"/>
+                                <DataGrid x:Name="ProductDataGrid" AutoGenerateColumns="False" Margin="10"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="400" BorderBrush="Black" BorderThickness="1" CanUserAddRows="False">
+                                    <!-- Define custom columns with specific headers -->
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="User Generated Code" Binding="{Binding prod_code_usergen}" Width="*" />
+                                        <DataGridTextColumn Header="Product Name" Binding="{Binding prod_name}" Width="*" />
+                                        <DataGridTextColumn Header="Description" Binding="{Binding prod_desc}" Width="*" />
+                                        <DataGridTextColumn Header="Cost Price" Binding="{Binding prod_cost_price}" Width="*" />
+                                        <DataGridTextColumn Header="Sales Price" Binding="{Binding prod_sales_price}" Width="*" />
+                                        <DataGridTextColumn Header="Category ID" Binding="{Binding prod_cat}" Width="*" />
+                                        <DataGridTemplateColumn Header="Status" Width="*">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock>
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="Text" Value="Inactive" />
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding prod_status}" Value="1">
+                                                                        <Setter Property="Text" Value="Active" />
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Header="Actions" Width="Auto">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button Content="Update"
+                                                        Command="{Binding DataContext.UpdateCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" Click="ToggleUpdateProductForm_Click"
+                                                        CommandParameter="{Binding}">
+                                                    </Button>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </StackPanel>
                         </TabItem>
                     </TabControl>
                 </TabItem>
@@ -92,8 +131,13 @@
                 <TextBlock FontSize="10" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">Testing</TextBlock>
             </mah:Flyout>
 
-            <!-- Add Category Flyout -->
+            <!-- Category Flyout -->
             <mah:Flyout x:Name="ManageCategoryFlyout" Header="Add New Category" Position="Right" Theme="Adapt"
+                    IsOpen="False">
+            </mah:Flyout>
+
+            <!-- Product Flyout -->
+            <mah:Flyout x:Name="ManageProductFlyout" Header="Add New Product" Position="Right" Theme="Adapt"
                     IsOpen="False">
             </mah:Flyout>
 

@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="ERP_Desktop.Components.AddProductControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ERP_Desktop.Components"
+             mc:Ignorable="d" 
+             xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10">
+            <TextBox x:Name="txtUserGeneratedCode" Width="200" Margin="10"
+                     mah:TextBoxHelper.Watermark="Enter User-Generated Code"/>
+            <TextBox x:Name="txtProductName" Width="200" Margin="10"
+                     mah:TextBoxHelper.Watermark="Enter Product Name"/>
+            <TextBox x:Name="txtProductDescription" Width="200" Margin="10"
+                     mah:TextBoxHelper.Watermark="Enter Product Description"/>
+            <TextBox x:Name="txtCostPrice" Width="200" Margin="10"
+                     mah:TextBoxHelper.Watermark="Enter Cost Price" />
+            <TextBox x:Name="txtSalesPrice" Width="200" Margin="10"
+                     mah:TextBoxHelper.Watermark="Enter Sales Price"/>
+
+            <ComboBox x:Name="cmbCategory" Width="200" Margin="10"   DisplayMemberPath="cat_name"
+          SelectedValuePath="cat_code">
+                <!-- Populate this ComboBox with category items dynamically -->
+            </ComboBox>
+            <CheckBox x:Name="chkStatus" Content="Active Status" Width="200" Margin="10" IsChecked="True"/>
+            <Button Content="Save" Width="200" HorizontalAlignment="Left" Margin="10" Click="AddProduct" x:Name="AddProductButton"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
