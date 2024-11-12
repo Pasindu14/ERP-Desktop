@@ -114,8 +114,20 @@
                         </TabItem>
                     </TabControl>
                 </TabItem>
-                <TabItem Header="Tab 2">
-                    <TextBlock Text="Content for Tab 2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <TabItem Header="Invoice">
+                    <TabControl Margin="10">
+                        <!-- First nested tab -->
+                        <TabItem Header="Add Invoice">
+                            <components:AddInvoiceControl />
+                        </TabItem>
+
+                        <!-- Second nested tab -->
+                        <TabItem Header="Invoice View">
+                            <StackPanel >
+                                <components:InvoiceViewControl />
+                            </StackPanel>
+                        </TabItem>
+                    </TabControl>
                 </TabItem>
                 <TabItem Header="Tab 3">
                     <TextBlock Text="Content for Tab 3" VerticalAlignment="Center" HorizontalAlignment="Center" />

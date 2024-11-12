@@ -10,7 +10,13 @@
     <Compile Update="Components\AddCategoryControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\AddInvoiceControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Components\AddProductControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\InvoiceViewControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Components\UpdateCategoryControl.xaml.cs">
@@ -27,7 +33,13 @@
     <Page Update="Components\AddCategoryControl.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Components\AddInvoiceControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Components\AddProductControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\InvoiceViewControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\UpdateCategoryControl.xaml">

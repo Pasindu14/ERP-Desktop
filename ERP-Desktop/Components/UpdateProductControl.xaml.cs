@@ -8,6 +8,8 @@ using System.Windows.Controls;
 
 namespace ERP_Desktop.Components
 {
+
+
     public partial class UpdateProductControl : UserControl
     {
         private readonly InputValidator _validator;
@@ -45,9 +47,8 @@ namespace ERP_Desktop.Components
             chkProductStatus.IsChecked = product.prod_status == 1;
 
             // Bind categories to ComboBox and set selected category
-            cmbUpdateCategory.ItemsSource = categories;
-            cmbUpdateCategory.DisplayMemberPath = "cat_name";
-            cmbUpdateCategory.SelectedValuePath = "cat_code";
+            var categoryWrappers = categories.Select(c => new Wrapper.CategoryDisplayWrapper(c));
+            cmbUpdateCategory.ItemsSource = categoryWrappers;
             cmbUpdateCategory.SelectedValue = product.prod_cat;
         }
 

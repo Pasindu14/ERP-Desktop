@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="ERP_Desktop.Components.InvoiceViewControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ERP_Desktop.Components"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+              xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             >
+    <Grid >
+        <StackPanel>
+            <!-- Invoice Selection and Generate Button -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <ComboBox x:Name="cmbInvoices" Width="200" DisplayMemberPath="invoice_number" Margin="0,0,10,0"/>
+                <Button Content="Generate" Width="100" Click="GenerateInvoiceView"/>
+
+                <Button Content="Delete" Width="100" Click="DeleteInvoice"  Margin="20,0,0,0" Background="Red"/>
+            </StackPanel>
+
+            <!-- DataGrid for Invoice Lines -->
+            <DataGrid x:Name="InvoiceLinesDataGrid" AutoGenerateColumns="False" 
+                          HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="400" BorderBrush="Black" BorderThickness="1" CanUserAddRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Product Code" Binding="{Binding prod_code}" Width="*"/>
+                    <DataGridTextColumn Header="Old Price" Binding="{Binding old_price}" Width="*"/>
+                    <DataGridTextColumn Header="Current Price" Binding="{Binding current_price}" Width="*"/>
+                    <DataGridTextColumn Header="Quantity" Binding="{Binding quantity}" Width="*"/>
+                    <DataGridTextColumn Header="Total" Binding="{Binding line_total}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <StackPanel HorizontalAlignment="Left" >
+                <!-- Total Amount Display -->
+                <TextBlock x:Name="txtDate" FontSize="16" FontWeight="Bold" Text="Invoice Date:" HorizontalAlignment="Left" Visibility="Hidden" TextAlignment="Left"/>
+                <TextBlock x:Name="txtTotalAmount" FontSize="16" FontWeight="Bold" Text="Total: $0.00" HorizontalAlignment="Left" Visibility="Hidden" TextAlignment="Left"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

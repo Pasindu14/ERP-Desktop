@@ -19,7 +19,11 @@ public partial class tblProductMaster
 
     public string? prod_cat { get; set; }
 
+    public decimal? stock { get; set; }
+
     public int? prod_status { get; set; }
 
     public virtual tblCategoryMaster? prod_catNavigation { get; set; }
+
+    public virtual ICollection<tblInvoiceLine> tblInvoiceLine { get; set; } = new List<tblInvoiceLine>();
 }

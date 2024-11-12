@@ -23,6 +23,13 @@ namespace ERP_Desktop.Services
             return await _context.tblProductMaster.ToListAsync();
         }
 
+        // Method to fetch a single product by Product Code
+        public async Task<tblProductMaster?> FetchProductByCodeAsync(int prodCode)
+        {
+            return await _context.tblProductMaster.FirstOrDefaultAsync(p => p.prod_code == prodCode);
+        }
+
+
         // Insert a new product
         public async Task<bool> InsertProductAsync(tblProductMaster product)
         {

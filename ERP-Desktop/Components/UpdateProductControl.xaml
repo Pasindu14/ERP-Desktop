@@ -18,8 +18,10 @@
                      mah:TextBoxHelper.Watermark="Enter Cost Price"/>
             <TextBox x:Name="txtUpdateSalesPrice" Width="200" Margin="10"
                      mah:TextBoxHelper.Watermark="Enter Sales Price"/>
-            <ComboBox x:Name="cmbUpdateCategory" Width="200" Margin="10"
-                      />
+            <ComboBox x:Name="cmbUpdateCategory" Width="200" Margin="10"  DisplayMemberPath="DisplayText"
+          SelectedValuePath="cat_code"/>
+            
+
             <CheckBox x:Name="chkProductStatus" Content="Active Status" Width="200" Margin="10" IsChecked="True"/>
             <Button Content="Update" Width="200" HorizontalAlignment="Left" Margin="10" Click="UpdateProduct" x:Name="UpdateProductButton"/>
         </StackPanel>

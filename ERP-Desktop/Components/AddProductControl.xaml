@@ -19,7 +19,7 @@
             <TextBox x:Name="txtSalesPrice" Width="200" Margin="10"
                      mah:TextBoxHelper.Watermark="Enter Sales Price"/>
 
-            <ComboBox x:Name="cmbCategory" Width="200" Margin="10"   DisplayMemberPath="cat_name"
+            <ComboBox x:Name="cmbCategory" Width="200" Margin="10"   DisplayMemberPath="cat_code"
           SelectedValuePath="cat_code">
                 <!-- Populate this ComboBox with category items dynamically -->
             </ComboBox>

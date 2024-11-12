@@ -17,6 +17,10 @@ public partial class ERPDesktopContext : DbContext
 
     public virtual DbSet<tblCategoryMaster> tblCategoryMaster { get; set; }
 
+    public virtual DbSet<tblInvoiceLine> tblInvoiceLine { get; set; }
+
+    public virtual DbSet<tblInvoiceMaster> tblInvoiceMaster { get; set; }
+
     public virtual DbSet<tblProductMaster> tblProductMaster { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -33,6 +37,35 @@ public partial class ERPDesktopContext : DbContext
             entity.Property(e => e.cat_name).HasMaxLength(255);
         });
 
+        modelBuilder.Entity<tblInvoiceLine>(entity =>
+        {
+            entity.HasKey(e => e.line_id).HasName("PK__tblInvoi__F5AE5F62A0620519");
+
+            entity.Property(e => e.current_price).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.line_total).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.old_price).HasColumnType("decimal(18, 2)");
+
+            entity.HasOne(d => d.invoice).WithMany(p => p.tblInvoiceLine)
+                .HasForeignKey(d => d.invoice_id)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__tblInvoic__invoi__3D5E1FD2");
+
+            entity.HasOne(d => d.prod_codeNavigation).WithMany(p => p.tblInvoiceLine)
+                .HasForeignKey(d => d.prod_code)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__tblInvoic__prod___3E52440B");
+        });
+
+        modelBuilder.Entity<tblInvoiceMaster>(entity =>
+        {
+            entity.HasKey(e => e.invoice_id).HasName("PK__tblInvoi__F58DFD49ADD1C064");
+
+            entity.Property(e => e.invoice_number)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.total_amount).HasColumnType("decimal(18, 2)");
+        });
+
         modelBuilder.Entity<tblProductMaster>(entity =>
         {
             entity.HasKey(e => e.prod_code).HasName("PK__tblProdu__4C932104B1FAEF53");
@@ -45,6 +78,9 @@ public partial class ERPDesktopContext : DbContext
             entity.Property(e => e.prod_desc).HasMaxLength(255);
             entity.Property(e => e.prod_name).HasMaxLength(100);
             entity.Property(e => e.prod_sales_price).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.stock)
+                .HasDefaultValue(0m)
+                .HasColumnType("decimal(18, 2)");
 
             entity.HasOne(d => d.prod_catNavigation).WithMany(p => p.tblProductMaster)
                 .HasForeignKey(d => d.prod_cat)

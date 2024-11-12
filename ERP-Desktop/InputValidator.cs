@@ -7,13 +7,10 @@ namespace ERP_Desktop.Helpers
 {
     public class InputValidator
     {
-        private readonly Dictionary<TextBox, string> _textBoxValidations = new Dictionary<TextBox, string>();
-        private readonly Dictionary<ComboBox, string> _comboBoxValidations = new Dictionary<ComboBox, string>(); // ComboBox validations
-        private readonly Dictionary<Control, string> _errorMessages = new Dictionary<Control, string>(); // Stores error messages for both TextBox and ComboBox
-
-        public InputValidator()
-        {
-        }
+        private readonly Dictionary<TextBox, string> _textBoxValidations = new();
+        private readonly Dictionary<ComboBox, string> _comboBoxValidations = new();
+        private readonly Dictionary<DatePicker, string> _datePickerValidations = new(); // DatePicker validations
+        private readonly Dictionary<Control, string> _errorMessages = new();
 
         public void RegisterTextBox(TextBox textBox, string fieldName)
         {
@@ -30,6 +27,15 @@ namespace ERP_Desktop.Helpers
             {
                 _comboBoxValidations.Add(comboBox, fieldName);
                 comboBox.SelectionChanged += ComboBox_SelectionChanged;
+            }
+        }
+
+        public void RegisterDatePicker(DatePicker datePicker, string fieldName)
+        {
+            if (!_datePickerValidations.ContainsKey(datePicker))
+            {
+                _datePickerValidations.Add(datePicker, fieldName);
+                datePicker.SelectedDateChanged += DatePicker_SelectedDateChanged;
             }
         }
 
@@ -53,6 +59,16 @@ namespace ERP_Desktop.Helpers
             }
         }
 
+        public void UnregisterDatePicker(DatePicker datePicker)
+        {
+            if (_datePickerValidations.ContainsKey(datePicker))
+            {
+                datePicker.SelectedDateChanged -= DatePicker_SelectedDateChanged;
+                _datePickerValidations.Remove(datePicker);
+                _errorMessages.Remove(datePicker);
+            }
+        }
+
         public bool ValidateAll()
         {
             bool isValid = true;
@@ -73,6 +89,14 @@ namespace ERP_Desktop.Helpers
                 }
             }
 
+            foreach (var datePicker in _datePickerValidations.Keys)
+            {
+                if (!ValidateDatePicker(datePicker))
+                {
+                    isValid = false;
+                }
+            }
+
             return isValid;
         }
 
@@ -81,7 +105,6 @@ namespace ERP_Desktop.Helpers
             if (string.IsNullOrWhiteSpace(textBox.Text) ||
                 (_errorMessages.ContainsKey(textBox) && textBox.Text == _errorMessages[textBox]))
             {
-                ShowNotification($"{_textBoxValidations[textBox]} cannot be empty!", false);
                 ShowError(textBox, $"{_textBoxValidations[textBox]} cannot be empty!");
                 return false;
             }
@@ -93,8 +116,18 @@ namespace ERP_Desktop.Helpers
             if (comboBox.SelectedItem == null ||
                 (_errorMessages.ContainsKey(comboBox) && comboBox.Text == _errorMessages[comboBox]))
             {
-                ShowNotification($"{_comboBoxValidations[comboBox]} must be selected!", false);
                 ShowError(comboBox, $"{_comboBoxValidations[comboBox]} must be selected!");
+                return false;
+            }
+            return true;
+        }
+
+        public bool ValidateDatePicker(DatePicker datePicker)
+        {
+            if (!datePicker.SelectedDate.HasValue ||
+                (_errorMessages.ContainsKey(datePicker) && datePicker.SelectedDate == null))
+            {
+                ShowError(datePicker, $"{_datePickerValidations[datePicker]} must be selected!");
                 return false;
             }
             return true;
@@ -102,7 +135,7 @@ namespace ERP_Desktop.Helpers
 
         private void ShowError(Control control, string message)
         {
-            _errorMessages[control] = message; // Store error message for the control
+            _errorMessages[control] = message;
             control.ToolTip = message;
             control.BorderBrush = Brushes.Red;
             control.BorderThickness = new Thickness(2);
@@ -113,9 +146,9 @@ namespace ERP_Desktop.Helpers
                 textBox.Foreground = Brushes.Red;
                 textBox.GotFocus += ClearErrorOnFocus;
             }
-            else if (control is ComboBox comboBox)
+            else if (control is ComboBox comboBox || control is DatePicker datePicker)
             {
-                comboBox.GotFocus += ClearErrorOnFocus;
+                control.GotFocus += ClearErrorOnFocus;
             }
         }
 
@@ -123,20 +156,16 @@ namespace ERP_Desktop.Helpers
         {
             if (sender is Control control)
             {
-                if (_errorMessages.ContainsKey(control))
+                control.ClearValue(Border.BorderBrushProperty);
+                control.ClearValue(Border.BorderThicknessProperty);
+
+                if (control is TextBox textBox)
                 {
-                    control.ClearValue(TextBox.ToolTipProperty);
-                    control.ClearValue(Border.BorderBrushProperty);
-                    control.ClearValue(Border.BorderThicknessProperty);
-
-                    if (control is TextBox textBox)
-                    {
-                        textBox.Clear();
-                        textBox.ClearValue(TextBox.ForegroundProperty);
-                    }
-
-                    control.GotFocus -= ClearErrorOnFocus;
+                    textBox.Clear();
+                    textBox.ClearValue(TextBox.ForegroundProperty);
                 }
+
+                control.GotFocus -= ClearErrorOnFocus;
             }
         }
 
@@ -158,6 +187,16 @@ namespace ERP_Desktop.Helpers
                 comboBox.ClearValue(Border.BorderBrushProperty);
                 comboBox.ClearValue(Border.BorderThicknessProperty);
                 comboBox.GotFocus -= ClearErrorOnFocus;
+            }
+        }
+
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender is DatePicker datePicker)
+            {
+                datePicker.ClearValue(Border.BorderBrushProperty);
+                datePicker.ClearValue(Border.BorderThicknessProperty);
+                datePicker.GotFocus -= ClearErrorOnFocus;
             }
         }
 

@@ -4318,11 +4318,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\ERP-Desktop.csproj",
+      "projectUniqueName": "D:\\Github\\ERP-Desktop-New\\ERP-Desktop\\ERP-Desktop.csproj",
       "projectName": "ERP-Desktop",
-      "projectPath": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\ERP-Desktop.csproj",
+      "projectPath": "D:\\Github\\ERP-Desktop-New\\ERP-Desktop\\ERP-Desktop.csproj",
       "packagesPath": "C:\\Users\\Pasindu\\.nuget\\packages\\",
-      "outputPath": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\obj\\",
+      "outputPath": "D:\\Github\\ERP-Desktop-New\\ERP-Desktop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Pasindu\\AppData\\Roaming\\NuGet\\NuGet.Config",
