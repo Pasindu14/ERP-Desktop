@@ -22,11 +22,11 @@
             <DataGrid x:Name="InvoiceLinesDataGrid" AutoGenerateColumns="False" 
                           HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="400" BorderBrush="Black" BorderThickness="1" CanUserAddRows="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Product Code" Binding="{Binding prod_code}" Width="*"/>
-                    <DataGridTextColumn Header="Old Price" Binding="{Binding old_price}" Width="*"/>
-                    <DataGridTextColumn Header="Current Price" Binding="{Binding current_price}" Width="*"/>
-                    <DataGridTextColumn Header="Quantity" Binding="{Binding quantity}" Width="*"/>
-                    <DataGridTextColumn Header="Total" Binding="{Binding line_total}" Width="*"/>
+                    <DataGridTextColumn Header="Product" Binding="{Binding ProductName }" Width="*"/>
+                    <DataGridTextColumn Header="Old Price" Binding="{Binding OldPrice}" Width="*"/>
+                    <DataGridTextColumn Header="Current Price" Binding="{Binding CurrentPrice }" Width="*"/>
+                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity }" Width="*"/>
+                    <DataGridTextColumn Header="Total" Binding="{Binding LineTotal }" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
 

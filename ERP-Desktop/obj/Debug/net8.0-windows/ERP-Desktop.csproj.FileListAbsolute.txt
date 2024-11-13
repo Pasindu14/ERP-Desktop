@@ -495,3 +495,15 @@ K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\AddPurchas
 K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\AddPurchaseOrderControl.g.cs
 K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\PurchaseOrderViewControl.g.cs
 K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\PurchaseOrderViewControl.baml
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\InvoiceSummaryViewControl.g.cs
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\InvoiceSummaryViewControl.baml
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\InvoiceLinesView.baml
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\InvoiceLinesView.g.cs
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\TestControl.g.cs
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\TestControl.baml
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\PurchaseOrderSummaryViewControl.g.cs
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\PurchaseOrderSummaryViewControl.baml
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\Dashboard.g.cs
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\Dashboard.baml
+K:\Github\ERP-Desktop\ERP-Desktop\bin\Debug\net8.0-windows\LiveCharts.dll
+K:\Github\ERP-Desktop\ERP-Desktop\bin\Debug\net8.0-windows\LiveCharts.Wpf.dll

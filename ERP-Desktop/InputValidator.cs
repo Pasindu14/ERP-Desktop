@@ -35,7 +35,7 @@ namespace ERP_Desktop.Helpers
             if (!_datePickerValidations.ContainsKey(datePicker))
             {
                 _datePickerValidations.Add(datePicker, fieldName);
-                datePicker.SelectedDateChanged += DatePicker_SelectedDateChanged;
+                datePicker.SelectedDateChanged += DatePicker_SelectedDateChanged!;
             }
         }
 

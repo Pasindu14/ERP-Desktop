@@ -1,5 +1,6 @@
 ﻿using ERP_Desktop.DBModels;
 using ERP_Desktop.Helpers;
+using ERP_Desktop.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -168,11 +169,59 @@ namespace ERP_Desktop.Services
         }
 
 
-        public async Task<List<tblInvoiceLine>> FetchInvoiceLinesByInvoiceIdAsync(int invoiceId)
+        public async Task<List<InvoiceLineItem>> FetchInvoiceLinesByInvoiceIdAsync(int invoiceId)
         {
-            return await _context.tblInvoiceLine
-                .Where(line => line.invoice_id == invoiceId)
+            return await (from line in _context.tblInvoiceLine
+                          join product in _context.tblProductMaster
+                          on line.prod_code equals product.prod_code
+                          where line.invoice_id == invoiceId
+                          select new InvoiceLineItem
+                          {
+                              ProdCode = line.prod_code,
+                              Quantity = line.quantity,
+                              CurrentPrice = line.current_price,
+                              OldPrice = line.old_price,
+                              LineTotal = line.line_total,
+                              ProductName = product.prod_name // Assuming this is the column for product name
+                          }).ToListAsync();
+        }
+
+
+        // Fetch invoices within a specific date range
+        public async Task<List<tblInvoiceMaster>> FetchInvoicesByDateRangeAsync(DateTime fromDate, DateTime toDate)
+        {
+            // Convert DateTime to DateOnly
+            var fromDateOnly = DateOnly.FromDateTime(fromDate);
+            var toDateOnly = DateOnly.FromDateTime(toDate);
+
+            return await _context.tblInvoiceMaster
+                .Where(invoice => invoice.invoice_date >= fromDateOnly && invoice.invoice_date <= toDateOnly)
+                .Include(invoice => invoice.tblInvoiceLine) // Optionally include related line items
                 .ToListAsync();
         }
+
+
+        public async Task<List<DailySalesReport>> FetchDailySalesReportAsync(DateTime startDate, DateTime endDate)
+        {
+            var fromDateOnly = DateOnly.FromDateTime(startDate);
+            var toDateOnly = DateOnly.FromDateTime(endDate);
+
+            return await (from line in _context.tblInvoiceLine
+                          join product in _context.tblProductMaster
+                          on line.prod_code equals product.prod_code
+                          join invoice in _context.tblInvoiceMaster
+                          on line.invoice_id equals invoice.invoice_id
+                          where invoice.invoice_date >= fromDateOnly && invoice.invoice_date <= toDateOnly
+                          group new { line, product } by invoice.invoice_date into dateGroup
+                          select new DailySalesReport
+                          {
+                              Date = dateGroup.Key,
+                              TotalQuantity = dateGroup.Sum(g => g.line.quantity),
+                              TotalSales = Math.Round(dateGroup.Sum(g => g.line.line_total), 2),
+                              TotalProfit = Math.Round(dateGroup.Sum(g => (g.line.current_price - g.product.prod_cost_price) * g.line.quantity) ?? 0, 2)
+                          }).ToListAsync();
+        }
+
+
     }
 }

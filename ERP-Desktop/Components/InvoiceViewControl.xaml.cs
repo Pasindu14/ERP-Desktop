@@ -50,7 +50,7 @@ namespace ERP_Desktop.Components
             InvoiceLinesDataGrid.ItemsSource = lineItems;
 
             // Calculate and display total amount
-            var totalAmount = lineItems.Sum(line => line.line_total);
+            var totalAmount = lineItems.Sum(line => line.LineTotal);
             txtTotalAmount.Text = $"Total: {totalAmount:F2}";
             txtDate.Text = $"Invoice Date: {selectedInvoice.invoice_date.ToString()}";
             txtTotalAmount.Visibility = Visibility.Visible;

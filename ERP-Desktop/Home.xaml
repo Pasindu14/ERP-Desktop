@@ -6,9 +6,9 @@
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:ERP_Desktop" xmlns:components="clr-namespace:ERP_Desktop.Components"
                  mc:Ignorable="d"
-        Title="Home" Height="700" Width="1200"
+        Title="ERP System" Height="700" Width="1200"
         BorderBrush="{DynamicResource MahApps.Brushes.Accent}" BorderThickness="3"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
 
     <Grid>
         <!-- StackPanel with Button and TabControl inside -->
@@ -22,6 +22,12 @@
             </StackPanel>
             <!-- Main TabControl with multiple tabs -->
             <TabControl Margin="10">
+				<TabItem Header="Dashboard">
+					<!-- Center the Dashboard component in a Grid -->
+					<Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+						<components:Dashboard />
+					</Grid>
+				</TabItem>
                 <TabItem Header="Masters">
                     <!-- Nested TabControl inside the Masters tab -->
                     <TabControl Margin="10">
@@ -144,6 +150,21 @@
 						</TabItem>
 					</TabControl>
                 </TabItem>
+				<TabItem Header="Summary">
+					<TabControl Margin="10">
+						<!-- First nested tab -->
+						<TabItem Header="Invoice Summary">
+							<components:InvoiceSummaryViewControl />
+						</TabItem>
+
+						<!-- Second nested tab -->
+						<TabItem Header="Purchase Order Sumamary">
+							<StackPanel >
+								<components:PurchaseOrderSummaryViewControl />
+							</StackPanel>
+						</TabItem>
+					</TabControl>
+				</TabItem>
             </TabControl>
         </StackPanel>
     </Grid>

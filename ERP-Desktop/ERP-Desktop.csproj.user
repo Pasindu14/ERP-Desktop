@@ -19,10 +19,25 @@
     <Compile Update="Components\AddPurchaseOrderControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\Dashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\InvoiceLinesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\InvoiceSummaryViewControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Components\InvoiceViewControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\PurchaseOrderSummaryViewControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Components\PurchaseOrderViewControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\TestControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Components\UpdateCategoryControl.xaml.cs">
@@ -48,10 +63,25 @@
     <Page Update="Components\AddPurchaseOrderControl.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Components\Dashboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\InvoiceLinesView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\InvoiceSummaryViewControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Components\InvoiceViewControl.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Components\PurchaseOrderSummaryViewControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Components\PurchaseOrderViewControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\TestControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\UpdateCategoryControl.xaml">

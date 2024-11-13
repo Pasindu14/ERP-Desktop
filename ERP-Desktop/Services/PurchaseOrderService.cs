@@ -187,5 +187,26 @@ namespace ERP_Desktop.Services
                 .Where(line => line.purchase_order_id == purchaseOrderId)
                 .ToListAsync();
         }
+
+
+        public async Task<List<DailyPurchaseReport>> FetchDailyPurchaseReportAsync(DateTime startDate, DateTime endDate)
+        {
+            var fromDateOnly = DateOnly.FromDateTime(startDate);
+            var toDateOnly = DateOnly.FromDateTime(endDate);
+
+            return await (from line in _context.tblPurchaseOrderLine
+                          join product in _context.tblProductMaster
+                          on line.prod_code equals product.prod_code
+                          join purchaseOrder in _context.tblPurchaseOrderMaster
+                          on line.purchase_order_id equals purchaseOrder.purchase_order_id
+                          where purchaseOrder.purchase_order_date >= fromDateOnly && purchaseOrder.purchase_order_date <= toDateOnly
+                          group new { line, product } by purchaseOrder.purchase_order_date into dateGroup
+                          select new DailyPurchaseReport
+                          {
+                              Date = dateGroup.Key,
+                              TotalQuantity = dateGroup.Sum(g => g.line.quantity),
+                              TotalPurchaseAmount = Math.Round(dateGroup.Sum(g => g.line.line_total), 2),
+                          }).ToListAsync();
+        }
     }
 }

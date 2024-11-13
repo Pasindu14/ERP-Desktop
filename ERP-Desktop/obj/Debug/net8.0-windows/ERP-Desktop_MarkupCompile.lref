@@ -2,10 +2,15 @@
 FK:\Github\ERP-Desktop\ERP-Desktop\App.xaml;;
 FK:\Github\ERP-Desktop\ERP-Desktop\Components\AddCategoryControl.xaml;;
 FK:\Github\ERP-Desktop\ERP-Desktop\Components\AddProductControl.xaml;;
+FK:\Github\ERP-Desktop\ERP-Desktop\Components\Dashboard.xaml;;
+FK:\Github\ERP-Desktop\ERP-Desktop\Components\InvoiceLinesView.xaml;;
+FK:\Github\ERP-Desktop\ERP-Desktop\Components\InvoiceSummaryViewControl.xaml;;
 FK:\Github\ERP-Desktop\ERP-Desktop\Components\InvoiceViewControl.xaml;;
+FK:\Github\ERP-Desktop\ERP-Desktop\Components\PurchaseOrderSummaryViewControl.xaml;;
+FK:\Github\ERP-Desktop\ERP-Desktop\Components\PurchaseOrderViewControl.xaml;;
+FK:\Github\ERP-Desktop\ERP-Desktop\Components\TestControl.xaml;;
 FK:\Github\ERP-Desktop\ERP-Desktop\Components\UpdateCategoryControl.xaml;;
 FK:\Github\ERP-Desktop\ERP-Desktop\Components\UpdateProductControl.xaml;;
 FK:\Github\ERP-Desktop\ERP-Desktop\Home.xaml;;
 FK:\Github\ERP-Desktop\ERP-Desktop\MainWindow.xaml;;
-FK:\Github\ERP-Desktop\ERP-Desktop\Components\PurchaseOrderViewControl.xaml;;
 
