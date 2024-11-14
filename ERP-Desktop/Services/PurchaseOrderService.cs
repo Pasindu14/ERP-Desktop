@@ -78,6 +78,17 @@ namespace ERP_Desktop.Services
                 .FirstOrDefaultAsync(po => po.purchase_order_id == purchaseOrderId);
         }
 
+        public async Task<List<tblPurchaseOrderMaster>> FetchPurchaseOrdersByDateRangeAsync(DateTime fromDate, DateTime toDate)
+        {
+            var fromDateOnly = DateOnly.FromDateTime(fromDate);
+            var toDateOnly = DateOnly.FromDateTime(toDate);
+
+            return await _context.tblPurchaseOrderMaster
+                .Where(po => po.purchase_order_date >= fromDateOnly && po.purchase_order_date <= toDateOnly)
+                .Include(po => po.tblPurchaseOrderLine) // Include line items
+                .ToListAsync();
+        }
+
         // Update an existing purchase order and its line items
         public async Task<bool> UpdatePurchaseOrderAsync(tblPurchaseOrderMaster updatedPurchaseOrder, List<tblPurchaseOrderLine> updatedLineItems)
         {

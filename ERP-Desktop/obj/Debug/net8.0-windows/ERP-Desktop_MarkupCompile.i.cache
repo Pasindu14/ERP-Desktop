@@ -11,10 +11,10 @@ false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 K:\Github\ERP-Desktop\ERP-Desktop\App.xaml
 15-1546901483
-
+1-1606303973
 391497571075
 243-855659091
 Components\AddCategoryControl.xaml;Components\AddInvoiceControl.xaml;Components\AddProductControl.xaml;Components\AddPurchaseOrderControl.xaml;Components\Dashboard.xaml;Components\InvoiceLinesView.xaml;Components\InvoiceSummaryViewControl.xaml;Components\InvoiceViewControl.xaml;Components\PurchaseOrderSummaryViewControl.xaml;Components\PurchaseOrderViewControl.xaml;Components\TestControl.xaml;Components\UpdateCategoryControl.xaml;Components\UpdateProductControl.xaml;Home.xaml;MainWindow.xaml;
 
-True
+False
 

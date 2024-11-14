@@ -46,7 +46,7 @@ namespace ERP_Desktop.Components
 
         private async Task LoadProducts()
         {
-            var products = await _productService.FetchAllProductsAsync();
+            var products = await _productService.FetchAllActiveProductsAsync();
             var productWrapper = products.Select(c => new Wrapper.ProductDisplayWrapper(c));
             cmbProduct.ItemsSource = productWrapper;
         }

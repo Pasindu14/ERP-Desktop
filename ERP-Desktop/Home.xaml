@@ -8,7 +8,8 @@
                  mc:Ignorable="d"
         Title="ERP System" Height="700" Width="1200"
         BorderBrush="{DynamicResource MahApps.Brushes.Accent}" BorderThickness="3"
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" 
+	>
 
     <Grid>
         <!-- StackPanel with Button and TabControl inside -->
@@ -135,15 +136,15 @@
                         </TabItem>
                     </TabControl>
                 </TabItem>
-                <TabItem Header="Purchase Order">
+                <TabItem Header="Purchases Order">
 					<TabControl Margin="10">
 						<!-- First nested tab -->
-						<TabItem Header="Add Purchase Order">
+						<TabItem Header="Add Purchases Order">
 							<components:AddPurchaseOrderControl />
 						</TabItem>
 
 						<!-- Second nested tab -->
-						<TabItem Header="Purchase Order View">
+						<TabItem Header="Purchases Order View">
 							<StackPanel >
 								<components:PurchaseOrderViewControl />
 							</StackPanel>
@@ -158,7 +159,7 @@
 						</TabItem>
 
 						<!-- Second nested tab -->
-						<TabItem Header="Purchase Order Sumamary">
+						<TabItem Header="Purchases Order Sumamary">
 							<StackPanel >
 								<components:PurchaseOrderSummaryViewControl />
 							</StackPanel>

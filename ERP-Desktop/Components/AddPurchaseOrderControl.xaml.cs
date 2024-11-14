@@ -1,6 +1,7 @@
 ﻿using ERP_Desktop.DBModels;
 using ERP_Desktop.Helpers;
 using ERP_Desktop.Services;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +45,7 @@ namespace ERP_Desktop.Components
 
         private async Task LoadProducts()
         {
-            var products = await _productService.FetchAllProductsAsync();
+            var products = await _productService.FetchAllActiveProductsAsync();
             var productWrapper = products.Select(c => new Wrapper.ProductDisplayWrapper(c));
             cmbProduct.ItemsSource = productWrapper;
         }
@@ -56,6 +57,7 @@ namespace ERP_Desktop.Components
 
         private async void AddProductItemToOrder(object sender, RoutedEventArgs e)
         {
+
             if (_validatorProduct.ValidateAll())
             {
                 // Get selected product and quantity

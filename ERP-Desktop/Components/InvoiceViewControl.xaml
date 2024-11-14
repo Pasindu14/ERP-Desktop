@@ -5,32 +5,39 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ERP_Desktop.Components"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-              xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-             >
-    <Grid >
+             xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
         <StackPanel>
+            <!-- Date Range Selection and Filter Button -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <DatePicker x:Name="dpFromDate" Width="200" Margin="0,0,10,0" 
+                            SelectedDateFormat="Short" mah:TextBoxHelper.Watermark="From Date"/>
+                <DatePicker x:Name="dpToDate" Width="200" Margin="0,0,10,0" 
+                            SelectedDateFormat="Short" mah:TextBoxHelper.Watermark="To Date"/>
+                <Button Content="Filter" Width="100" Click="FilterInvoicesByDate"/>
+            </StackPanel>
+
             <!-- Invoice Selection and Generate Button -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <ComboBox x:Name="cmbInvoices" Width="200" DisplayMemberPath="invoice_number" Margin="0,0,10,0"/>
+                <ComboBox x:Name="cmbInvoices" Width="200" DisplayMemberPath="invoice_number" Margin="0,0,10,0"  mah:TextBoxHelper.Watermark="No data available"/>
                 <Button Content="Generate" Width="100" Click="GenerateInvoiceView"/>
-
-                <Button Content="Delete" Width="100" Click="DeleteInvoice"  Margin="20,0,0,0" Background="Red"/>
+                <Button Content="Delete" Width="100" Click="DeleteInvoice" Margin="20,0,0,0" Background="Red"/>
             </StackPanel>
 
             <!-- DataGrid for Invoice Lines -->
             <DataGrid x:Name="InvoiceLinesDataGrid" AutoGenerateColumns="False" 
-                          HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="400" BorderBrush="Black" BorderThickness="1" CanUserAddRows="False">
+                      HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="400" BorderBrush="Black" BorderThickness="1" CanUserAddRows="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Product" Binding="{Binding ProductName }" Width="*"/>
+                    <DataGridTextColumn Header="Product" Binding="{Binding ProductName}" Width="*"/>
                     <DataGridTextColumn Header="Old Price" Binding="{Binding OldPrice}" Width="*"/>
-                    <DataGridTextColumn Header="Current Price" Binding="{Binding CurrentPrice }" Width="*"/>
-                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity }" Width="*"/>
-                    <DataGridTextColumn Header="Total" Binding="{Binding LineTotal }" Width="*"/>
+                    <DataGridTextColumn Header="Current Price" Binding="{Binding CurrentPrice}" Width="*"/>
+                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="*"/>
+                    <DataGridTextColumn Header="Total" Binding="{Binding LineTotal}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
 
-            <StackPanel HorizontalAlignment="Left" >
+            <StackPanel HorizontalAlignment="Left">
                 <!-- Total Amount Display -->
                 <TextBlock x:Name="txtDate" FontSize="16" FontWeight="Bold" Text="Invoice Date:" HorizontalAlignment="Left" Visibility="Hidden" TextAlignment="Left"/>
                 <TextBlock x:Name="txtTotalAmount" FontSize="16" FontWeight="Bold" Text="Total: $0.00" HorizontalAlignment="Left" Visibility="Hidden" TextAlignment="Left"/>

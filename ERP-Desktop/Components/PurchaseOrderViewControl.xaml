@@ -9,9 +9,19 @@
              xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro">
     <Grid>
         <StackPanel>
+            <!-- Date Range Selection and Filter Button -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <DatePicker x:Name="dpFromDate" Width="200" Margin="0,0,10,0" 
+                            SelectedDateFormat="Short" mah:TextBoxHelper.Watermark="From Date"/>
+                <DatePicker x:Name="dpToDate" Width="200" Margin="0,0,10,0" 
+                            SelectedDateFormat="Short" mah:TextBoxHelper.Watermark="To Date"/>
+                <Button Content="Filter" Width="100" Click="FilterPurchaseOrdersByDate"/>
+            </StackPanel>
+
             <!-- Purchase Order Selection and Generate Button -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <ComboBox x:Name="cmbPurchaseOrders" Width="200" DisplayMemberPath="purchase_order_number" Margin="0,0,10,0"/>
+                <ComboBox x:Name="cmbPurchaseOrders" Width="200" DisplayMemberPath="purchase_order_number" 
+                          Margin="0,0,10,0" mah:TextBoxHelper.Watermark="No data available"/>
                 <Button Content="Generate" Width="100" Click="GeneratePurchaseOrderView"/>
                 <Button Content="Delete" Width="100" Click="DeletePurchaseOrder" Margin="20,0,0,0" Background="Red"/>
             </StackPanel>

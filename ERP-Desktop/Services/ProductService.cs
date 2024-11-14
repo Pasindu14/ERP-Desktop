@@ -23,6 +23,11 @@ namespace ERP_Desktop.Services
             return await _context.tblProductMaster.ToListAsync();
         }
 
+        public async Task<List<tblProductMaster>> FetchAllActiveProductsAsync()
+        {
+            return await _context.tblProductMaster.Where(category => category.prod_status == 1).ToListAsync();
+        }
+
         // Method to fetch a single product by Product Code
         public async Task<tblProductMaster?> FetchProductByCodeAsync(int prodCode)
         {

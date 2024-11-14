@@ -507,3 +507,4 @@ K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\Dashboard.
 K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\Components\Dashboard.baml
 K:\Github\ERP-Desktop\ERP-Desktop\bin\Debug\net8.0-windows\LiveCharts.dll
 K:\Github\ERP-Desktop\ERP-Desktop\bin\Debug\net8.0-windows\LiveCharts.Wpf.dll
+K:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\ERP-Desktop_Content.g.cs

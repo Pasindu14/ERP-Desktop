@@ -137,7 +137,7 @@ namespace ERP_Desktop
 
             // Subscribe to the ProductAdded event
             addProductControl.ProductAdded += OnProductAdded!;
-            addProductControl.cmbCategory.ItemsSource = await _categoryService.FetchAllCategoriesAsync();
+            addProductControl.cmbCategory.ItemsSource = await _categoryService.FetchActiveCategoriesAsync();
 
             // Set the content of the ManageProductFlyout
             ManageProductFlyout.Content = addProductControl;
@@ -171,7 +171,7 @@ namespace ERP_Desktop
             var updateProductControl = new UpdateProductControl();
 
             // Fetch all categories to populate the ComboBox in the UpdateProductControl
-            var categories = await _categoryService.FetchAllCategoriesAsync();
+            var categories = await _categoryService.FetchActiveCategoriesAsync();
             updateProductControl.LoadProductDetails(product, categories);
 
             // Subscribe to the ProductUpdated event

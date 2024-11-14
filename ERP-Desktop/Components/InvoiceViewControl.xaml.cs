@@ -14,61 +14,82 @@ namespace ERP_Desktop.Components
     public partial class InvoiceViewControl : UserControl
     {
         private readonly InvoiceService _invoiceService;
-
+        private readonly InputValidator _validatorDateRange;
         public InvoiceViewControl()
         {
             InitializeComponent();
             var context = new ERPDesktopContext();
             _invoiceService = new InvoiceService(context);
             Loaded += InvoiceViewControl_Loaded;
+            _validatorDateRange = new InputValidator();
         }
 
-        private async void InvoiceViewControl_Loaded(object sender, RoutedEventArgs e)
+        private void InvoiceViewControl_Loaded(object sender, RoutedEventArgs e)
         {
-            // Load all invoices into ComboBox when control loads
-            await LoadInvoices();
+            _validatorDateRange.RegisterDatePicker(dpFromDate, "From Date");
+            _validatorDateRange.RegisterDatePicker(dpToDate, "To Date");
         }
 
-        private async Task LoadInvoices()
+        private async void FilterInvoicesByDate(object sender, RoutedEventArgs e)
         {
-            var invoices = await _invoiceService.FetchAllInvoicesAsync();
-            cmbInvoices.ItemsSource = invoices;
-        }
+            TextBoxHelper.SetWatermark(cmbInvoices, "Select an invoice");
+            if (_validatorDateRange.ValidateAll())
+            {
+                var fromDate = dpFromDate.SelectedDate!.Value;
+                var toDate = dpToDate.SelectedDate!.Value;
 
+                if (fromDate > toDate)
+                {
+                    StatusMessageHelper.ShowMessage("'From' date cannot be later than 'To' date.", true);
+                    return;
+                }
+
+                // Fetch invoices in the selected date range
+                var invoices = await _invoiceService.FetchInvoicesByDateRangeAsync(fromDate, toDate);
+                cmbInvoices.ItemsSource = invoices;
+
+                // Clear displayed details if no invoices found
+                if (!invoices.Any())
+                {
+                    InvoiceLinesDataGrid.ItemsSource = null;
+                    txtTotalAmount.Visibility = Visibility.Hidden;
+                    txtDate.Visibility = Visibility.Hidden;
+                    StatusMessageHelper.ShowMessage("No invoices found for the selected date range.", true);
+                }
+            }
+            else {
+                StatusMessageHelper.ShowMessage("Please select both 'From' and 'To' dates.", true);
+                return;
+            }
+
+        }
 
         private async void GenerateInvoiceView(object sender, RoutedEventArgs e)
         {
-            // Check if an invoice is selected
             if (cmbInvoices.SelectedItem is not tblInvoiceMaster selectedInvoice)
             {
                 StatusMessageHelper.ShowMessage("Please select an invoice.", true);
                 return;
             }
 
-            // Fetch invoice line items and display in DataGrid
             var lineItems = await _invoiceService.FetchInvoiceLinesByInvoiceIdAsync(selectedInvoice.invoice_id);
             InvoiceLinesDataGrid.ItemsSource = lineItems;
 
-            // Calculate and display total amount
             var totalAmount = lineItems.Sum(line => line.LineTotal);
             txtTotalAmount.Text = $"Total: {totalAmount:F2}";
             txtDate.Text = $"Invoice Date: {selectedInvoice.invoice_date.ToString()}";
             txtTotalAmount.Visibility = Visibility.Visible;
             txtDate.Visibility = Visibility.Visible;
-
         }
 
         private async void DeleteInvoice(object sender, RoutedEventArgs e)
         {
-            // Check if an invoice is selected
             if (cmbInvoices.SelectedItem is not tblInvoiceMaster selectedInvoice)
             {
                 StatusMessageHelper.ShowMessage("Please select an invoice to delete.", true);
                 return;
             }
 
-            // Confirm the deletion with the user
-            // Show confirmation dialog using MahApps
             var result = await this.TryFindParent<MetroWindow>().ShowMessageAsync(
                 "Confirm Deletion",
                 "Are you sure you want to delete this invoice?",
@@ -76,19 +97,18 @@ namespace ERP_Desktop.Components
                 new MetroDialogSettings { AffirmativeButtonText = "Yes", NegativeButtonText = "No" }
             );
 
-            if (result != MessageDialogResult.Affirmative)
-            {
-                return; // Exit if the user selects "No"
-            }
+            if (result != MessageDialogResult.Affirmative) return;
 
-            // Attempt to delete the invoice
             bool isDeleted = await _invoiceService.DeleteInvoiceAsync(selectedInvoice.invoice_id);
             if (isDeleted)
             {
                 StatusMessageHelper.ShowMessage("Invoice deleted successfully.", false);
 
-                // Refresh the invoice list and clear displayed details
-                await LoadInvoices();
+                var fromDate = dpFromDate.SelectedDate!.Value;
+                var toDate = dpToDate.SelectedDate!.Value;
+                var invoices = await _invoiceService.FetchInvoicesByDateRangeAsync(fromDate, toDate);
+                cmbInvoices.ItemsSource = invoices;
+
                 InvoiceLinesDataGrid.ItemsSource = null;
                 txtTotalAmount.Visibility = Visibility.Hidden;
                 txtDate.Visibility = Visibility.Hidden;
@@ -98,6 +118,5 @@ namespace ERP_Desktop.Components
                 StatusMessageHelper.ShowMessage("Failed to delete invoice. Please try again.", true);
             }
         }
-
     }
 }

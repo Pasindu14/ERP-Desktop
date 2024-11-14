@@ -47,10 +47,16 @@ namespace ERP_Desktop.Components
                 InvoicesDataGrid.ItemsSource = dailySales;
 
                 // Calculate and display total amount for filtered invoices
-                var totalAmount = dailySales.Sum(sale => sale.TotalSales);
-                txtTotalAmount.Text = $"Total Sales: {totalAmount:F2}";
+                var totalSales = dailySales.Sum(sale => sale.TotalSales);
+                var totalProfit = dailySales.Sum(sale => sale.TotalProfit);
+
+                txtTotalSales.Text = $"Total Sales: {totalSales:F2}";
                 //txtTotalAmount.Text = $"Total: {totalAmount:C2}";
-                txtTotalAmount.Visibility = dailySales.Any() ? Visibility.Visible : Visibility.Hidden;
+                txtTotalSales.Visibility = dailySales.Any() ? Visibility.Visible : Visibility.Hidden;
+
+                txtTotalProfit.Text = $"Total Profit: {totalProfit:F2}";
+                //txtTotalAmount.Text = $"Total: {totalAmount:C2}";
+                txtTotalProfit.Visibility = dailySales.Any() ? Visibility.Visible : Visibility.Hidden;
 
                 // Show result message
                 if (dailySales.Count == 0)

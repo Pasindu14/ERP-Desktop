@@ -29,7 +29,8 @@
             </DataGrid>
 
             <!-- Total Amount Display for Selected Date Range -->
-            <TextBlock x:Name="txtTotalAmount" FontSize="16" FontWeight="Bold" Text="Total:0.00" HorizontalAlignment="Left" Visibility="Hidden" TextAlignment="Left"/>
+            <TextBlock x:Name="txtTotalSales" FontSize="16" FontWeight="Bold" Text="Total:0.00" HorizontalAlignment="Left" Visibility="Hidden" TextAlignment="Left"/>
+            <TextBlock x:Name="txtTotalProfit" FontSize="16" FontWeight="Bold" Text="Total:0.00" HorizontalAlignment="Left" Visibility="Hidden" TextAlignment="Left"/>
         </StackPanel>
     </Grid>
 </UserControl>

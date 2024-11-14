@@ -22,6 +22,13 @@ namespace ERP_Desktop.Services
             return await _context.tblCategoryMaster.ToListAsync();
         }
 
+        public async Task<List<tblCategoryMaster>> FetchActiveCategoriesAsync()
+        {
+            return await _context.tblCategoryMaster
+                                 .Where(category => category.cat_status == 1)
+                                 .ToListAsync();
+        }
+
         public async Task<bool> InsertCategoryAsync(tblCategoryMaster category)
         {
             try
