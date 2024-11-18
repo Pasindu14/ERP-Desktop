@@ -16,5 +16,5 @@ K:\Github\ERP-Desktop\ERP-Desktop\App.xaml
 243-855659091
 Components\AddCategoryControl.xaml;Components\AddInvoiceControl.xaml;Components\AddProductControl.xaml;Components\AddPurchaseOrderControl.xaml;Components\Dashboard.xaml;Components\InvoiceLinesView.xaml;Components\InvoiceSummaryViewControl.xaml;Components\InvoiceViewControl.xaml;Components\PurchaseOrderSummaryViewControl.xaml;Components\PurchaseOrderViewControl.xaml;Components\TestControl.xaml;Components\UpdateCategoryControl.xaml;Components\UpdateProductControl.xaml;Home.xaml;MainWindow.xaml;
 
-False
+True
 

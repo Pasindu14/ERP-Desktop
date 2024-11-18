@@ -49,12 +49,12 @@ namespace ERP_Desktop.Services
                     }
 
                     // Check if there's enough stock to fulfill the invoice
-                    if (product.stock < lineItem.quantity)
-                    {
-                        await transaction.RollbackAsync();
-                        StatusMessageHelper.ShowMessage($"Insufficient stock for product {product.prod_name} (Code: {product.prod_code}). Available stock: {product.stock}.", true);
-                        return false;
-                    }
+                    //if (product.stock < lineItem.quantity)
+                    //{
+                    //    await transaction.RollbackAsync();
+                    //    StatusMessageHelper.ShowMessage($"Insufficient stock for product {product.prod_name} (Code: {product.prod_code}). Available stock: {product.stock}.", true);
+                    //    return false;
+                    //}
 
                     // Deduct stock
                     product.stock -= lineItem.quantity;
