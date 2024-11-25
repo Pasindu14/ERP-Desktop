@@ -4388,11 +4388,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\ERP-Desktop.csproj",
+      "projectUniqueName": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\ERP-Desktop.csproj",
       "projectName": "ERP-Desktop",
-      "projectPath": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\ERP-Desktop.csproj",
+      "projectPath": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\ERP-Desktop.csproj",
       "packagesPath": "C:\\Users\\Pasindu\\.nuget\\packages\\",
-      "outputPath": "K:\\Github\\ERP-Desktop\\ERP-Desktop\\obj\\",
+      "outputPath": "D:\\Github\\ERP-Desktop\\ERP-Desktop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Pasindu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4469,7 +4469,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   },

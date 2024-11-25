@@ -2,10 +2,6 @@
 using ERP_Desktop.Helpers;
 using ERP_Desktop.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ERP_Desktop.Services
 {
