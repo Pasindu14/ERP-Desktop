@@ -102,7 +102,17 @@ namespace ERP_Desktop.Components
                 }
 
                 // Wrap _purchaseOrderItems for display and set as source for DataGrid
-                var wrappedItems = _purchaseOrderItems.Select(i => new Wrapper.PurchaseOrderLineDisplayWrapper(i, product)).ToList();
+                var wrappedItems = new List<Wrapper.PurchaseOrderLineDisplayWrapper>();
+                foreach (var item in _purchaseOrderItems)
+                {
+                    // Fetch product details for each item
+                    var productDetails = await _productService.FetchProductByCodeAsync(item.prod_code);
+                    if (productDetails != null)
+                    {
+                        wrappedItems.Add(new Wrapper.PurchaseOrderLineDisplayWrapper(item, productDetails));
+                    }
+                }
+
                 PurchaseOrderDataGrid.ItemsSource = wrappedItems;
                 PurchaseOrderDataGrid.Items.Refresh(); // Refresh the DataGrid display to reflect changes
 

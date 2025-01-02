@@ -111,7 +111,17 @@ namespace ERP_Desktop.Components
                 }
 
                 // Wrap _invoiceItems for display and set as source for DataGrid
-                var wrappedItems = _invoiceItems.Select(i => new Wrapper.InvoiceLineDisplayWrapper(i, product)).ToList();
+                var wrappedItems = new List<Wrapper.InvoiceLineDisplayWrapper>();
+                foreach (var item in _invoiceItems)
+                {
+                    // Fetch product details for each item
+                    var productDetails = await _productService.FetchProductByCodeAsync(item.prod_code);
+                    if (productDetails != null)
+                    {
+                        wrappedItems.Add(new Wrapper.InvoiceLineDisplayWrapper(item, productDetails));
+                    }
+                }
+
                 InvoiceDataGrid.ItemsSource = wrappedItems;
                 InvoiceDataGrid.Items.Refresh(); // Refresh the DataGrid display to reflect changes
 
