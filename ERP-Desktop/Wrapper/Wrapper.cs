@@ -42,6 +42,7 @@ namespace ERP_Desktop
             public InvoiceLineDisplayWrapper(tblInvoiceLine lineItem, tblProductMaster product)
             {
                 _lineItem = lineItem;
+                ProductCode = product.prod_code;
                 ProductName = product.prod_name;
                 Quantity = lineItem.quantity;
                 OldPrice = lineItem.old_price;
@@ -49,6 +50,7 @@ namespace ERP_Desktop
                 Total = lineItem.line_total;
             }
 
+            public int ProductCode { get; set; }
             public string ProductName { get; }
             public int Quantity { get; set; }
             public decimal OldPrice { get; }
@@ -91,22 +93,45 @@ namespace ERP_Desktop
         }
 
         // Wrapper for Purchase Order line item display information
+        // Wrapper for Purchase Order line item display information
         public class PurchaseOrderLineDisplayWrapper : INotifyPropertyChanged
         {
-            private tblPurchaseOrderLine _lineItem;
+            private readonly tblPurchaseOrderLine _lineItem;
 
             public PurchaseOrderLineDisplayWrapper(tblPurchaseOrderLine lineItem, tblProductMaster product)
             {
                 _lineItem = lineItem;
                 ProductName = product.prod_name;
                 Quantity = lineItem.quantity;
-                UnitPrice = lineItem.unit_price;
-                LineTotal = lineItem.line_total;
+                ProductCode = product.prod_code;
+                _unitPrice = lineItem.unit_price;
+                _lineTotal = lineItem.line_total;
             }
 
             public string ProductName { get; }
             public int Quantity { get; set; }
-            public decimal UnitPrice { get; }
+
+            public int ProductCode { get; set; }
+
+            private decimal _unitPrice;
+            public decimal UnitPrice
+            {
+                get => _unitPrice;
+                set
+                {
+                    if (_unitPrice != value)
+                    {
+                        _unitPrice = value;
+                        _lineItem.unit_price = _unitPrice;
+
+                        LineTotal = _unitPrice * Quantity;
+                        _lineItem.line_total = LineTotal;
+
+                        OnPropertyChanged(nameof(UnitPrice));
+                        OnPropertyChanged(nameof(LineTotal));
+                    }
+                }
+            }
 
             private decimal _lineTotal;
             public decimal LineTotal
@@ -130,5 +155,6 @@ namespace ERP_Desktop
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
     }
 }

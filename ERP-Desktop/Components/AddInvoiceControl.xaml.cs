@@ -158,7 +158,7 @@ namespace ERP_Desktop.Components
                 bool isInvoiceCreated = await _invoiceService.CreateInvoiceAsync(invoice, _invoiceItems);
 
                 if (isInvoiceCreated)
-                {
+                {   
                     StatusMessageHelper.ShowMessage("Invoice created successfully.", false);
 
                     // Clear the form and invoice items list
@@ -172,6 +172,33 @@ namespace ERP_Desktop.Components
             else
             {
                 StatusMessageHelper.ShowMessage("Please enter valid details.", true);
+            }
+        }
+
+        private void DeleteInvoiceLine_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button btn && btn.Tag is Wrapper.InvoiceLineDisplayWrapper wrapper)
+            {
+                // Remove from _invoiceItems using the prod_code
+                var itemToRemove = _invoiceItems.FirstOrDefault(i => i.prod_code == wrapper.ProductCode);
+                if (itemToRemove != null)
+                {
+                    _invoiceItems.Remove(itemToRemove);
+                }
+
+                // Rebuild the wrappedItems list and refresh the DataGrid
+                var wrappedItems = new List<Wrapper.InvoiceLineDisplayWrapper>();
+                foreach (var item in _invoiceItems)
+                {
+                    // You may want to cache product details if performance is a concern
+                    var productDetails = _productService.FetchProductByCodeAsync(item.prod_code).Result;
+                    if (productDetails != null)
+                    {
+                        wrappedItems.Add(new Wrapper.InvoiceLineDisplayWrapper(item, productDetails));
+                    }
+                }
+                InvoiceDataGrid.ItemsSource = wrappedItems;
+                InvoiceDataGrid.Items.Refresh();
             }
         }
     }

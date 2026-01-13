@@ -31,11 +31,20 @@
             <DataGrid x:Name="InvoiceDataGrid"  Margin="10" AutoGenerateColumns="False"
           HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="400" BorderBrush="Black" BorderThickness="1" CanUserAddRows="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Product" Binding="{Binding ProductName}" Width="*"/>
-                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="*"/>
-                    <DataGridTextColumn Header="Old Price" Binding="{Binding OldPrice}" Width="*"/>
+                    <DataGridTextColumn Header="Product" Binding="{Binding ProductName}" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Old Price" Binding="{Binding OldPrice}" Width="*" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Current Price" Binding="{Binding CurrentPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Width="*"/>
-                    <DataGridTextColumn Header="Total" Binding="{Binding Total}" Width="*"/>
+                    <DataGridTextColumn Header="Total" Binding="{Binding Total}" Width="*" IsReadOnly="True"/>
+                    <DataGridTemplateColumn Header="Delete" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Delete"
+                                        Click="DeleteInvoiceLine_Click"
+                                        Tag="{Binding}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
 

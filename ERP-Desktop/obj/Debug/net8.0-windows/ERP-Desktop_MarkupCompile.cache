@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Github\ERP-Desktop-New\ERP-Desktop\obj\Debug\net8.0-windows\
+D:\Github\ERP-Desktop\ERP-Desktop\obj\Debug\net8.0-windows\
 ERP_Desktop
 none
 false
-TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-D:\Github\ERP-Desktop-New\ERP-Desktop\App.xaml
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+D:\Github\ERP-Desktop\ERP-Desktop\App.xaml
 15-1546901483
 1-1606303973
 37-978136618
-243-1769115389
+2431096975529
 Components\AddCategoryControl.xaml;Components\AddInvoiceControl.xaml;Components\AddProductControl.xaml;Components\AddPurchaseOrderControl.xaml;Components\Dashboard.xaml;Components\InvoiceLinesView.xaml;Components\InvoiceSummaryViewControl.xaml;Components\InvoiceViewControl.xaml;Components\PurchaseOrderSummaryViewControl.xaml;Components\PurchaseOrderViewControl.xaml;Components\TestControl.xaml;Components\UpdateCategoryControl.xaml;Components\UpdateProductControl.xaml;Home.xaml;MainWindow.xaml;
 
 False

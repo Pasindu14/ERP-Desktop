@@ -31,10 +31,30 @@
                       HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="400" 
                       BorderBrush="Black" BorderThickness="1" CanUserAddRows="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Product" Binding="{Binding ProductName}" Width="*"/>
-                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="*"/>
-                    <DataGridTextColumn Header="Unit Price" Binding="{Binding UnitPrice}" Width="*"/>
-                    <DataGridTextColumn Header="Total" Binding="{Binding LineTotal}" Width="*"/>
+                    <DataGridTextColumn Header="Product" Binding="{Binding ProductName}" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="*" IsReadOnly="True"/>
+                    <DataGridTemplateColumn Header="Unit Price" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding UnitPrice}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding UnitPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Total" Binding="{Binding LineTotal}" Width="*" IsReadOnly="True"/>
+                    <DataGridTemplateColumn Header="Delete" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Delete"
+                                        Click="DeletePurchaseOrderLine_Click"
+                                        Tag="{Binding}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
 

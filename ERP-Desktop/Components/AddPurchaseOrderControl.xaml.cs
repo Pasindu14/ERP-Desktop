@@ -165,5 +165,32 @@ namespace ERP_Desktop.Components
                 StatusMessageHelper.ShowMessage("Please enter valid details.", true);
             }
         }
+
+        private void DeletePurchaseOrderLine_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button btn && btn.Tag is Wrapper.PurchaseOrderLineDisplayWrapper wrapper)
+            {
+                // Remove from _purchaseOrderItems using the product code
+                var itemToRemove = _purchaseOrderItems.FirstOrDefault(i => i.prod_code == wrapper.ProductCode);
+                if (itemToRemove != null)
+                {
+                    _purchaseOrderItems.Remove(itemToRemove);
+                }
+
+                // Rebuild the wrappedItems list and refresh the DataGrid
+                var wrappedItems = new List<Wrapper.PurchaseOrderLineDisplayWrapper>();
+                foreach (var item in _purchaseOrderItems)
+                {
+                    var productDetails = _productService.FetchProductByCodeAsync(item.prod_code).Result;
+                    if (productDetails != null)
+                    {
+                        wrappedItems.Add(new Wrapper.PurchaseOrderLineDisplayWrapper(item, productDetails));
+                    }
+                }
+                PurchaseOrderDataGrid.ItemsSource = wrappedItems;
+                PurchaseOrderDataGrid.Items.Refresh();
+            }
+        }
+
     }
 }
