@@ -61,7 +61,7 @@ namespace ERP_Desktop.Components {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ERP-Desktop;component/components/invoicelinesview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ERP-Desktop;V1.0.0.0;component/components/invoicelinesview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Components\InvoiceLinesView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

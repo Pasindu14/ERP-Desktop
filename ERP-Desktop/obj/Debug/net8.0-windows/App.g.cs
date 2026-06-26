@@ -58,7 +58,7 @@ namespace ERP_Desktop {
             
             #line default
             #line hidden
-            System.Uri resourceLocater = new System.Uri("/ERP-Desktop;component/app.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ERP-Desktop;V1.0.0.0;component/app.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\App.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
