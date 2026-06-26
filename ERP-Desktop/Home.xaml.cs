@@ -29,6 +29,7 @@ namespace ERP_Desktop
     {
         private readonly CategoryService _categoryService;
         private readonly ProductService _productService;
+        private List<tblProductMaster> _allProducts = new List<tblProductMaster>();
 
         public Home()
         {
@@ -43,7 +44,7 @@ namespace ERP_Desktop
         private async void Home_Loaded(object sender, RoutedEventArgs e)
         {
             CategoryDataGrid.ItemsSource = await _categoryService.FetchAllCategoriesAsync(); //
-            ProductDataGrid.ItemsSource = await _productService.FetchAllProductsAsync();
+            await LoadProducts();
         }
 
         protected override void OnClosed(EventArgs e)
@@ -200,8 +201,42 @@ namespace ERP_Desktop
         // Method to reload the products into the ProductDataGrid
         private async Task LoadProducts()
         {
-            var products = await _productService.FetchAllProductsAsync();
-            ProductDataGrid.ItemsSource = products;
+            _allProducts = await _productService.FetchAllProductsAsync();
+            ApplyProductSearch(txtProductSearch?.Text);
+        }
+
+        // Filters the cached product list by the search term and binds the result to the grid
+        private void ApplyProductSearch(string? searchTerm)
+        {
+            if (string.IsNullOrWhiteSpace(searchTerm))
+            {
+                ProductDataGrid.ItemsSource = _allProducts;
+                return;
+            }
+
+            var term = searchTerm.Trim();
+            var filtered = _allProducts.Where(p =>
+                (p.prod_name != null && p.prod_name.Contains(term, StringComparison.OrdinalIgnoreCase)) ||
+                (p.prod_code_usergen != null && p.prod_code_usergen.Contains(term, StringComparison.OrdinalIgnoreCase)) ||
+                (p.prod_desc != null && p.prod_desc.Contains(term, StringComparison.OrdinalIgnoreCase))
+            ).ToList();
+
+            ProductDataGrid.ItemsSource = filtered;
+        }
+
+        // Search button click
+        private void ProductSearch_Click(object sender, RoutedEventArgs e)
+        {
+            ApplyProductSearch(txtProductSearch.Text);
+        }
+
+        // Allow pressing Enter in the search box to trigger search
+        private void ProductSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                ApplyProductSearch(txtProductSearch.Text);
+            }
         }
 
     }

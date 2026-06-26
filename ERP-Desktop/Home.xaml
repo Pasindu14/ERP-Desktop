@@ -76,7 +76,14 @@
                         </TabItem>
                         <TabItem Header="Product">
                             <StackPanel>
-                                <Button Content="Add New" Width="100" HorizontalAlignment="Left" Margin="10" Click="ToggleAddProductForm_Click"/>
+                                <DockPanel Margin="10,10,10,0" LastChildFill="False">
+                                    <Button Content="Add New" Width="100" DockPanel.Dock="Left" Click="ToggleAddProductForm_Click"/>
+                                    <Button x:Name="btnProductSearch" Content="Search" Width="100" DockPanel.Dock="Right" Click="ProductSearch_Click"/>
+                                    <TextBox x:Name="txtProductSearch" Width="220" DockPanel.Dock="Right" Margin="0,0,10,0"
+                                             VerticalContentAlignment="Center"
+                                             mah:TextBoxHelper.Watermark="Search products"
+                                             KeyDown="ProductSearch_KeyDown"/>
+                                </DockPanel>
                                 <DataGrid x:Name="ProductDataGrid" AutoGenerateColumns="False" Margin="10"
                           HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="400" BorderBrush="Black" BorderThickness="1" CanUserAddRows="False">
                                     <!-- Define custom columns with specific headers -->
